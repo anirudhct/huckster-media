@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Staff";
+  src: url("/fonts/Staff-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Anton";
+  src: url("/fonts/Anton-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@theme {
+  --color-background: #000000;
+  --color-primary: #ffffff;
+  --color-blue-dark: #2b5066;
+  --color-green: #00aa13;
+  --color-red: #fb0742;
+  --color-pink: #ff6498;
+  --color-yellow: #ffa900;
+  --color-green: #7ec54e;
+  --color-cyan: #00d0d5;
+  --font-anton: "Anton", sans-serif;
+  --font-staff: "Staff", "Times New Roman", serif;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  font-family: var(--font-staff);
+}
+
+.buttonHoverEffect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shakeText {
+  display: inline-block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.buttonHoverEffect:hover .shakeText {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, -1px, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 2px, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-3px, 3px, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(3px, -3px, 0);
+  }
+}
