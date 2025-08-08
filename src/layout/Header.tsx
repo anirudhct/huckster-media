@@ -55,15 +55,14 @@ export default function Header() {
       <div className="z-50 px-5 py-2.5">
         <div className="flex items-center justify-between">
           <Link to={"/"} className="z-50">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
+            <img
+              // autoPlay
+              // muted
+              // loop
+              // playsInline
               className="h-auto w-32 sm:w-40"
-            >
-              <source src="/logo.mp4" />
-            </video>
+              src="/logo-unscreen.gif"
+           />
           </Link>
 
           {!show && (
