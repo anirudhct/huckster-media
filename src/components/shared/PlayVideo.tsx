@@ -20,7 +20,7 @@ export default function PlayVideo() {
           autoPlay
           className="absolute -z-10 h-full w-full object-cover"
         >
-          <source src="/assets/tia-short.mp4" />
+          <source src="/huckster-recap-R4.mp4" />
         </video>
         <div className="font-anton ml-[-2.5%] flex h-full min-h-[87vh] flex-col justify-between pt-3 uppercase sm:pt-0 lg:min-h-screen lg:flex-row lg:items-center lg:justify-between">
           {/* <h2
