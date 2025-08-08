@@ -1,14 +1,14 @@
 import { useState } from "react";
 import Img from "../ui/Image";
-import { motion } from "motion/react";
-import { useInView } from "react-intersection-observer";
+// import { motion } from "motion/react";
+// import { useInView } from "react-intersection-observer";
 
 export default function PlayVideo() {
   const [show, setShow] = useState(false);
-  const [animationRef, isInView] = useInView({
-    triggerOnce: false,
-    threshold: 0.3,
-  });
+  // const [animationRef, isInView] = useInView({
+  //   triggerOnce: false,
+  //   threshold: 0.3,
+  // });
 
   return (
     <>
@@ -23,7 +23,7 @@ export default function PlayVideo() {
           <source src="/assets/tia-short.mp4" />
         </video>
         <div className="font-anton ml-[-2.5%] flex h-full min-h-[87vh] flex-col justify-between pt-3 uppercase sm:pt-0 lg:min-h-screen lg:flex-row lg:items-center lg:justify-between">
-          <h2
+          {/* <h2
             className="font-font-anton text-white2 lh-08 flex w-full justify-between text-[53vw] uppercase lg:text-[33vw]"
             ref={animationRef}
           >
@@ -45,24 +45,18 @@ export default function PlayVideo() {
                 l
               </motion.p>
             </div>
-          </h2>
-          <div className="flex justify-center sm:text-[3vw]">
-            <div className="flex flex-col">
-              <button
-                className="h-auto w-[4rem] cursor-pointer sm:w-[7.5rem]"
-                onClick={() => setShow(true)}
-              >
-                <video
-                  className="html-video !object-fill"
-                  preload="metadata"
-                  playsInline
-                >
-                  <source src="/assets/play.webm" type="video/mp4" />
-                </video>
-              </button>
-            </div>
+          </h2> */}
+          <div className="flex justify-center sm:text-[3vw] w-full">
+            <button
+              className="mx-auto h-auto w-[4rem] cursor-pointer sm:w-[7.5rem]"
+              onClick={() => setShow(true)}
+            >
+              <video preload="metadata" playsInline>
+                <source src="/assets/play.webm" type="video/mp4" />
+              </video>
+            </button>
           </div>
-          <h2 className="font-font-anton text-white2 lh-08 flex w-full justify-between text-[53vw] uppercase lg:text-[33vw]">
+          {/* <h2 className="font-font-anton text-white2 lh-08 flex w-full justify-between text-[53vw] uppercase lg:text-[33vw]">
             <div>
               <motion.p
                 initial={{ x: 50 }}
@@ -81,7 +75,7 @@ export default function PlayVideo() {
                 y
               </motion.p>
             </div>
-          </h2>
+          </h2> */}
         </div>
       </div>
 

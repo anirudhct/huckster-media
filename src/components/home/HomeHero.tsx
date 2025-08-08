@@ -27,7 +27,7 @@ export default function HomeHero() {
     <div className="flex min-h-[calc(100dvh-3.5rem)] flex-col justify-center gap-5 text-center sm:justify-end">
       <motion.div
         ref={setRefs}
-        className={`mt-5 w-full overflow-hidden whitespace-nowrap transition-colors duration-500 ${bgClasses[bgIndex]}`}
+        className={`w-full overflow-hidden whitespace-nowrap transition-colors duration-500 ${bgClasses[bgIndex]}`}
       >
         <span className="sr-only">We're here to make it</span>
         {heroInView && (
