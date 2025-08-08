@@ -5,7 +5,7 @@ type HeadProps = {
 };
 
 export default function Head({
-  title = "Huckster Productions",
+  title = "Huckster Group",
   description = "The UAE-based video production house with a narrative driven approach to one exceptional story at a time.",
   keywords = "",
 }: HeadProps) {
