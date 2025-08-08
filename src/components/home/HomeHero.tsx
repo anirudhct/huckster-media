@@ -65,7 +65,7 @@ export default function HomeHero() {
         loop
         autoPlay
       >
-        <source src="/banner3.mp4" />
+        <source src="/banner-2.mp4" />
       </video>
     </div>
   );
