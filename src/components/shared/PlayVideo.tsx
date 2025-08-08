@@ -46,9 +46,9 @@ export default function PlayVideo() {
               </motion.p>
             </div>
           </h2> */}
-          <div className="flex justify-center sm:text-[3vw] w-full">
+          <div className="flex justify-center sm:text-[3vw] w-full items-center h-[87vh]">
             <button
-              className="mx-auto h-auto w-[4rem] cursor-pointer sm:w-[7.5rem]"
+              className="m-auto h-auto w-[4rem] cursor-pointer sm:w-[7.5rem]"
               onClick={() => setShow(true)}
             >
               <video preload="metadata" playsInline>
@@ -88,7 +88,7 @@ export default function PlayVideo() {
             controls
             className="absolute -z-10 h-full w-full object-contain"
           >
-            <source src="/assets/tia.mp4" />
+            <source src="/huckster-recap-R4.mp4" />
           </video>
 
           <button
