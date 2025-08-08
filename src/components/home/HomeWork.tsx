@@ -7,7 +7,7 @@ import type { TWork } from "@/types/api";
 
 export default function HomeWork() {
   const { data } = useFeaturedWork();
-  
+
   return (
     <>
       {data?.data?.map((d: TWork, idx: number) => (

@@ -31,7 +31,13 @@ import { useInView } from "react-intersection-observer";
 //   },
 // ];
 
-const bgClasses = ["text-red", "text-pink", "text-yellow", "text-green", "text-cyan"];
+const bgClasses = [
+  "text-red",
+  "text-pink",
+  "text-yellow",
+  "text-green",
+  "text-cyan",
+];
 
 export default function BottamPoster() {
   // const { ref, inView } = useInView({

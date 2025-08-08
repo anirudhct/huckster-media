@@ -12,7 +12,7 @@ export const useBlogs = (page: number = 1) => {
 export const useBlog = (slug: string) => {
   return useQuery({
     queryFn: () => getBlog(slug),
-    queryKey: ["blogs",slug],
+    queryKey: ["blogs", slug],
   });
 };
 

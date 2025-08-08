@@ -28,12 +28,12 @@ export default function Footer() {
       <div className="border-t border-white/70" />
       <footer className="relative z-30 w-full">
         <div className="flex flex-wrap justify-between gap-3">
-          <div className="flex gap-5 items-center">
+          <div className="flex items-center gap-5">
             {socials.map((s) => (
               <Link
                 to={s.href}
                 target="_blank"
-                className="3xl:text-lg 5xl:text-xl 7xl:text-2xl text-sm sm:text-base hover:underline"
+                className="3xl:text-lg 5xl:text-xl 7xl:text-2xl text-sm hover:underline sm:text-base"
                 aria-label="socials"
               >
                 {s.label}

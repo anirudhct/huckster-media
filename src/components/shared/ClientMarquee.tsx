@@ -41,7 +41,8 @@ export default function ClientMarquee() {
         className="mx-auto flex w-full justify-center gap-5 sm:gap-10"
       >
         {logos.map((l, i) => (
-          <Img dynamic
+          <Img
+            dynamic
             src={l.image}
             key={i}
             className="h-20 object-contain sm:h-[5vw]"

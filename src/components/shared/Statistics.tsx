@@ -23,7 +23,7 @@ export default function Statistics() {
           <div className="absolute top-10 left-10 w-full sm:left-40">
             <Img
               src="/assets/svg/brands-transformed.svg"
-              className="object-conatin mx-auto  w-[70vw] sm:mx-0"
+              className="object-conatin mx-auto w-[70vw] sm:mx-0"
             />
           </div>
         </span>
@@ -32,11 +32,11 @@ export default function Statistics() {
           <div className="absolute top-10 left-10 w-full sm:left-40">
             <Img
               src="/assets/svg/campaigns-that-broke-the-internet.svg"
-              className="object-conatin mx-auto  w-[60vw] sm:mx-0"
+              className="object-conatin mx-auto w-[60vw] sm:mx-0"
             />
             <Img
               src="/assets/svg/(in-a-good-way).svg"
-              className="object-conatin mx-auto  w-[55vw] sm:mx-0"
+              className="object-conatin mx-auto w-[55vw] sm:mx-0"
             />
           </div>
         </span>
@@ -45,7 +45,7 @@ export default function Statistics() {
           <div className="absolute top-10 left-10 w-full sm:left-40">
             <Img
               src="/assets/svg/continents-covered.svg"
-              className="object-conatin mx-auto  w-[70vw] sm:mx-0"
+              className="object-conatin mx-auto w-[70vw] sm:mx-0"
             />
           </div>
         </span>
@@ -54,7 +54,7 @@ export default function Statistics() {
           <div className="absolute top-10 left-10 w-full sm:left-40">
             <Img
               src="/assets/svg/creative-minds.svg"
-              className="object-conatin mx-auto  w-[70vw] sm:mx-0"
+              className="object-conatin mx-auto w-[70vw] sm:mx-0"
             />
           </div>
         </span>

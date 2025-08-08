@@ -95,7 +95,9 @@ export default function DetailWork() {
           <button
             className="absolute inset-0 z-50 flex h-full w-full cursor-pointer items-center justify-center"
             onClick={() =>
-              setShow(`${import.meta.env.VITE_API_BASE_URL}/${work?.shortVideo}`)
+              setShow(
+                `${import.meta.env.VITE_API_BASE_URL}/${work?.shortVideo}`,
+              )
             }
           >
             <video
