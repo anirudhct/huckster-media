@@ -22,7 +22,7 @@ export default function PlayVideo() {
         >
           <source src="/huckster-recap-R4.mp4" />
         </video>
-        <div className="font-anton ml-[-2.5%] flex h-full min-h-[87vh] flex-col justify-between pt-3 uppercase sm:pt-0 lg:min-h-screen lg:flex-row lg:items-center lg:justify-between">
+        <div className="font-anton ml-[-2.5%] flex h-full min-h-[60vh] sm:min-h-[87vh] flex-col justify-between pt-3 uppercase sm:pt-0 lg:min-h-screen lg:flex-row lg:items-center lg:justify-between">
           {/* <h2
             className="font-font-anton text-white2 lh-08 flex w-full justify-between text-[53vw] uppercase lg:text-[33vw]"
             ref={animationRef}
@@ -46,7 +46,7 @@ export default function PlayVideo() {
               </motion.p>
             </div>
           </h2> */}
-          <div className="flex justify-center sm:text-[3vw] w-full items-center h-[87vh]">
+          <div className="flex justify-center sm:text-[3vw] w-full items-center h-[60vh] sm:h-[87vh]">
             <button
               className="m-auto h-auto w-[4rem] cursor-pointer sm:w-[7.5rem]"
               onClick={() => setShow(true)}

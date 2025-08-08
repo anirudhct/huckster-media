@@ -44,7 +44,7 @@ export default function HomeHero() {
             {[1, 2, 3, 4].map((i) => (
               <h1
                 key={`a-${i}`}
-                className="font-anton flex shrink-0 items-center gap-10 px-5 py-3 text-2xl leading-none sm:px-8 sm:text-[8vw] md:px-10"
+                className="font-anton flex shrink-0 items-center gap-10 px-5 py-2 sm:py-3 text-2xl leading-none sm:px-8 sm:text-[8vw] md:px-10"
               >
                 <span>We're</span>
                 <span>here</span>

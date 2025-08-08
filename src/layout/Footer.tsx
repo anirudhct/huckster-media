@@ -27,7 +27,7 @@ export default function Footer() {
 
       <div className="border-t border-white/70" />
       <footer className="relative z-30 w-full">
-        <div className="flex flex-wrap justify-between gap-3">
+        <div className="flex flex-wrap justify-center md:justify-between w-full gap-3">
           <div className="flex items-center gap-5">
             {socials.map((s) => (
               <Link
@@ -41,7 +41,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <p className="4xl:text-lg 5xl:text-xl 7xl:text-2xl z-50 text-sm xl:text-base">
+          <p className="4xl:text-lg 5xl:text-xl 7xl:text-2xl z-50 text-sm xl:text-base text-center">
             © {new Date().getFullYear()} Huckster Productions. All Rights
             Reserved.
           </p>
