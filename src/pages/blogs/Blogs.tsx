@@ -44,7 +44,8 @@ export default function Blogs() {
                   />
 
                   <Img
-                    src="/assets/blog.png"
+                    dynamic
+                    src={d.image}
                     className="aspet-[6/7] absolute inset-0 z-20 h-full w-full p-4"
                   />
                 </div>
