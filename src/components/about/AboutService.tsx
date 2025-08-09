@@ -1,5 +1,5 @@
 import CurvedCard from "@/components/shared/CurvedCard";
-import { motion } from "framer-motion"; // ✅ use correct package
+import { motion } from "motion/react"; // ✅ use correct package
 import { useInView } from "react-intersection-observer";
 
 const data = [

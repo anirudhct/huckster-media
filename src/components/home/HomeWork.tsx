@@ -19,7 +19,6 @@ export default function HomeWork() {
               className="absolute inset-0 -z-10 h-full w-full object-cover"
             />
 
-            {/* Foreground content */}
             <div className="relative z-10 space-y-10 p-5 text-center sm:p-8 md:p-10">
               <div>
                 <ScreenFitText>{d.title}</ScreenFitText>

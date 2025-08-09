@@ -27,7 +27,7 @@ export default function Team() {
       setCurrentColor((prev) => (prev + 1) % colors.length);
     }, 1000);
 
-    return () => clearInterval(interval); // cleanup
+    return () => clearInterval(interval);
   }, []);
 
   return (

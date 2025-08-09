@@ -1,6 +1,6 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useRef, type ReactNode } from "react";
-import { useMediaQuery } from "@/hooks/useMediaQuery"; // custom hook you'll create
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 type ParallaxProps = {
   children: ReactNode;
@@ -17,7 +17,6 @@ export default function Parallax({
 
   const isSmallDevice = useMediaQuery("(max-width: 1000px)"); // Tailwind's sm breakpoint
 
-  // Use 25% of offsetY if small screen
   const effectiveOffsetY = isSmallDevice ? offsetY * 0.25 : offsetY;
 
   const { scrollYProgress } = useScroll({

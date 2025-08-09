@@ -105,7 +105,7 @@ export default function Services() {
   const handleScrollToSection = (id: string) => {
     const el = document.getElementById(id.toLowerCase());
     if (el) {
-      const yOffset = scrollOffsets[id.toLowerCase()] ?? -80; // default fallback
+      const yOffset = scrollOffsets[id.toLowerCase()] ?? -80;
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }

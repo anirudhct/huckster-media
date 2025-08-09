@@ -39,7 +39,6 @@ export default function DetailBlog() {
               className="fixed top-0 left-0 -z-10 w-full object-cover lg:relative lg:z-10 lg:h-auto lg:w-[45%] lg:rounded-4xl"
             />
 
-            {/* MAIN CONTENT */}
             <div className="lg:hiden mt-[10rem] w-full space-y-5 overflow-hidden rounded-t-2xl bg-white px-5 py-10 text-black normal-case sm:px-8 md:space-y-8 md:px-10 lg:mt-0 lg:space-y-10 lg:rounded-t-4xl">
               <div className="mb-10 uppercase">
                 <p className="text-gray-700 lg:text-lg">Words by</p>

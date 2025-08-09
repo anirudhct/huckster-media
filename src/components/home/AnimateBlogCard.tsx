@@ -57,7 +57,8 @@ export default function AnimatedBlogCard({
                 className="pointer-events-none absolute h-full w-full object-contain"
               />
               <Img
-                src="/assets/blog.png"
+                dynamic
+                src={data.image}
                 className="absolute inset-0 z-20 h-full w-full object-cover p-3"
               />
             </div>

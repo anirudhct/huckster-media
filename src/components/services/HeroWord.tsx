@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { useRef } from "react";
 
 const letters = "HUCKSTER".split("");
@@ -21,7 +21,6 @@ export default function HeroWord() {
         {Array.from({ length: ROW_COUNT }).map((_, rowIndex) => (
           <div key={rowIndex} className="flex">
             {letters.map((letter, letterIndex) => {
-              // Offset each row animation
               const progressStart = rowIndex * 0.15;
               const progressEnd = progressStart + 0.2;
 

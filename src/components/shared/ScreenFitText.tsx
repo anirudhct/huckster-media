@@ -5,7 +5,7 @@ export default function ScreenFitText({
   maximum = 2500,
   children,
   className,
-  padding = false, // ✅ new optional prop
+  padding = false,
 }: {
   maximum?: number;
   children: ReactNode;

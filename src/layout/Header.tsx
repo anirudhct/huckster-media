@@ -8,7 +8,7 @@ const menus = [
   {
     name: "Huckster",
     href: "/",
-    color: "text-dark-blue",
+    color: "text-blue-dark",
     hover: "hover:text-blue-dark",
   },
   {
@@ -60,9 +60,9 @@ export default function Header() {
               // muted
               // loop
               // playsInline
-              className="h-auto w-32 sm:w-40"
+              className="h-auto w-28 sm:w-36"
               src="/logo-unscreen.gif"
-           />
+            />
           </Link>
 
           {!show && (
@@ -123,11 +123,10 @@ export default function Header() {
                     className="font-anton z-50 text-left text-[2.75rem] leading-none sm:text-[5.5vw]"
                   >
                     <NavLink
-                      to="/"
-                      // className={({ isActive }) =>
-                      //   `${isActive ? `${item.color}` : `text-black ${item.hover}`} whitespace-nowrap`
-                      // }
-                      className={`${item.hover} whitespace-nowrap`}
+                      to={item.href}
+                      className={({ isActive }) =>
+                        `${isActive ? `${item.color}` : `text-black ${item.hover}`} whitespace-nowrap`
+                      }
                       onClick={() => setShow(false)}
                     >
                       {item.name}

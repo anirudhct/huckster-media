@@ -1,5 +1,5 @@
 import { Suspense, lazy, useRef, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { Route, Routes, useLocation } from "react-router";
 import Layout from "./layout/Layout";
 

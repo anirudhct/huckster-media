@@ -85,7 +85,6 @@ export default function CareerForm() {
         />
       </div>
 
-      {/* Resume Upload */}
       <div className="col-span-full">
         <label
           htmlFor="resume"
@@ -118,13 +117,11 @@ export default function CareerForm() {
         )}
       </div>
 
-      {/* Hidden field for resume path */}
       <input
         type="hidden"
         {...register("resume", { required: "Resume is required" })}
       />
 
-      {/* Cover Letter Upload */}
       <div className="col-span-full">
         <label
           htmlFor="coverLetter"
@@ -157,7 +154,6 @@ export default function CareerForm() {
         )}
       </div>
 
-      {/* Hidden field for cover letter path */}
       <input
         type="hidden"
         {...register("coverLetter", { required: "Cover letter is required" })}
