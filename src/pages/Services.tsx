@@ -12,25 +12,31 @@ const data = [
     title: "Monitor",
     services: [
       {
-        image: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        image:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
         title: "Market Analysis",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        video:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
       },
       {
-        image: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        image:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
         title: "Trend Spotting",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        video:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
       },
       {
-        image: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        image:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
         title: "Analysis, Reporting, and Optimization",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        video:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
       },
     ],
   },
@@ -38,25 +44,31 @@ const data = [
     title: "Map",
     services: [
       {
-        image: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        image:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
         title: "Target Analysis & Segmentation",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        video:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
       },
       {
-        image: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        image:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
         title: "Brand Architecture and Positioning",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        video:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
       },
       {
-        image: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        image:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
         title: "Brand Identity System",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        video:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
       },
     ],
   },
@@ -64,32 +76,40 @@ const data = [
     title: "Market",
     services: [
       {
-        image: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        image:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
         title: "Campaign Planning Development & Execution",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        video:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
       },
       {
-        image: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        image:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
         title: "Social Media Magic",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        video:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
       },
       {
-        image: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        image:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
         title: "Influencer Connections",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        video:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
       },
       {
-        image: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        image:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
         title: "Media Partnerships",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
+        video:
+          "https://huckster-media-backend.vual.in/uploads/work/1754590906633-218818372.webp",
       },
     ],
   },
@@ -158,22 +178,22 @@ export default function Services() {
 
       <Parallax offsetY={-200}>
         <CurvedCard className="bg-[#121212] text-center">
-          <div className="mx-auto mt-10 grid w-fit justify-items-center">
+          <div className="mx-auto mt-10 flex w-full justify-between text-[7vw] gap-5">
             <button
               onClick={() => handleScrollToSection("monitor")}
-              className="font-anton bg-yellow mx-auto cursor-pointer rounded-2xl px-5 text-center text-[10vw] text-black uppercase"
+              className="font-anton cursor-pointer uppercase"
             >
               Monitor
             </button>
             <button
               onClick={() => handleScrollToSection("map")}
-              className="font-anton bg-yellow w-fit cursor-pointer px-5 text-center text-[10vw] leading-none text-black uppercase"
+              className="font-anton cursor-pointer uppercase"
             >
               Map
             </button>
             <button
               onClick={() => handleScrollToSection("market")}
-              className="font-anton bg-yellow mx-auto cursor-pointer rounded-2xl px-5 text-center text-[10vw] text-black uppercase"
+              className="font-anton cursor-pointer uppercase"
             >
               Market
             </button>

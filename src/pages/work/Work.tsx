@@ -18,39 +18,46 @@ export default function Work() {
         </h1>
       </div>
 
-      <div className="px-5 sm:px-8 md:hidden md:px-10">
-        {data?.data?.map((d: TWork) => (
-          <Link to={`/work/${d.slug}`} className="relative">
-            <Img dynamic src={d.image} />
-            <div className="absolute inset-0 flex w-full items-end justify-center p-4 text-center">
-              <ScreenFitText padding>{d.title}</ScreenFitText>
+      {data?.data?.map((d: TWork, idx: number) => (
+        <Parallax offsetY={-200} className="overflow-hidden rounded-t-4xl">
+          <Link to={`/work/${d.slug}`} className="relative" key={d.title}>
+            <Img
+              dynamic
+              src={d.image}
+              className="absolute inset-0 -z-10 h-full w-full object-cover"
+            />
+
+            <div className="relative z-10 space-y-10 p-5 text-center sm:p-8 md:p-10">
+              <div>
+                <ScreenFitText>{d.title}</ScreenFitText>
+
+                <p className="text-[1.75vw] font-medium text-white">
+                  {d.description}
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center text-white">
+                <div className="h-10 w-px bg-white" />
+                <span className="mt-2">{idx + 1} / 07</span>
+              </div>
+
+              <Parallax offsetY={-40} className="mb-40">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="object-conain mx-auto mb-10 aspect-video md:max-w-2xl"
+                >
+                  <source
+                    src={`${import.meta.env.VITE_API_BASE_URL}/${d.shortVideo}`}
+                  />
+                </video>
+              </Parallax>
             </div>
           </Link>
-        ))}
-      </div>
-
-      <div className="mx-auto my-20 hidden px-5 sm:px-8 md:block md:px-10">
-        {data?.data?.map((d: TWork, index: number) => {
-          const widths = ["w-[80%]", "w-[60%]", "w-[40%]"];
-          const widthClass = widths[index % 3];
-
-          return (
-            <Link to={`/work/${d.slug}`} key={d?._id}>
-              <Parallax
-                offsetY={-50}
-                className={`relative ${widthClass} mx-auto`}
-              >
-                <Img dynamic src={d.image} className="w-full" />
-                <div className="absolute inset-0 mb-10 flex items-end justify-center p-4">
-                  <div className="w-full max-w-full">
-                    <ScreenFitText padding>{d.title}</ScreenFitText>
-                  </div>
-                </div>
-              </Parallax>
-            </Link>
-          );
-        })}
-      </div>
+        </Parallax>
+      ))}
     </>
   );
 }
