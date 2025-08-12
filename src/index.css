@@ -26,14 +26,13 @@
   --color-cyan: #00d0d5;
   --font-anton: "Anton", sans-serif;
   --font-figtree: "Figtree", sans-serif;
-
 }
 
 body {
   background-color: var(--color-background);
   color: var(--color-primary);
   text-transform: uppercase;
-  font-family: var(--font-staff);
+  font-family: var(--font-figtree);
 }
 
 .buttonHoverEffect {

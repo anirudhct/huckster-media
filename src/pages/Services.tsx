@@ -6,6 +6,7 @@ import ScreenFitText from "@/components/shared/ScreenFitText";
 import Img from "@/components/ui/Image";
 import { useInView } from "react-intersection-observer";
 import { motion } from "motion/react";
+import ContactForm from "@/components/contact/ContactForm";
 
 const data = [
   {
@@ -178,7 +179,7 @@ export default function Services() {
 
       <Parallax offsetY={-200}>
         <CurvedCard className="bg-[#121212] text-center">
-          <div className="mx-auto mt-10 flex w-full justify-between text-[7vw] gap-5">
+          <div className="mx-auto mt-10 flex w-full justify-between gap-5 text-[7vw]">
             <button
               onClick={() => handleScrollToSection("monitor")}
               className="font-anton cursor-pointer uppercase"
@@ -255,6 +256,17 @@ export default function Services() {
           );
         })}
       </>
+
+      <div className="mt-10 grid grid-cols-1 gap-5 rounded-t-3xl bg-white p-5 text-black sm:grid-cols-2 sm:p-8 md:p-10 lg:p-14">
+        <div className="font-anton flex h-full flex-col justify-between overflow-hidden">
+          <span>Let's make some noise!</span>
+          <h4 className="mt-5 text-[10vw] leading-none sm:text-[8vw]">
+            Got a Minute?
+            <br /> Tell Us More
+          </h4>
+        </div>
+        <ContactForm />
+      </div>
     </>
   );
 }

@@ -31,7 +31,7 @@ export default function Work() {
               <div>
                 <ScreenFitText>{d.title}</ScreenFitText>
 
-                <p className="text-[1.75vw] font-medium text-white">
+                <p className="-mt-10 text-[1.75vw] font-medium text-white">
                   {d.description}
                 </p>
               </div>

@@ -7,9 +7,9 @@ export default function SeenHeard() {
     <>
       <Parallax offsetY={-200}>
         <CurvedCard className="bg-pink text-center">
-          <span className="font-anton text-[25vw] leading-none">Seen &</span>
+          <span className="font-anton text-[23vw] leading-none">Seen &</span>
 
-          <div className="font-anton relative flex justify-center text-[25vw] leading-none">
+          <div className="font-anton relative flex justify-center text-[23vw] leading-none">
             <span className="overflow-hidden">Hea</span>
             <Img
               src="/assets/footer/footer_work.jpeg"
