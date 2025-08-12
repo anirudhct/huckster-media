@@ -1,35 +1,35 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
- import Img from "../ui/Image";
+import Img from "../ui/Image";
 
 const data = [
-   {
-     src: "/assets/footer/footer_about.jpg",
-     name: "About Us",
-     href: "/about-us",
-   },
-   {
-     src: "/assets/footer/footer_work.jpeg",
-     name: "Work",
-     href: "/work",
-   },
-   {
-     src: "/assets/footer/footer_about.jpg",
-     name: "Services",
-     href: "/services",
-   },
-   {
-     src: "/assets/footer/footer_work.jpeg",
-     name: "Seen & Heard",
-     href: "/blogs",
-   },
-   {
-     src: "/assets/footer/footer_about.jpg",
-     name: "Contact us",
-     href: "/contact-us",
-   },
- ];
+  {
+    src: "/assets/footer/footer_about.jpg",
+    name: "We",
+    href: "/about-us",
+  },
+  {
+    src: "/assets/footer/footer_work.jpeg",
+    name: "Think big",
+    href: "/work",
+  },
+  {
+    src: "/assets/footer/footer_about.jpg",
+    name: "For you",
+    href: "/services",
+  },
+  {
+    src: "/assets/footer/footer_work.jpeg",
+    name: "Seen & Heard",
+    href: "/blogs",
+  },
+  {
+    src: "/assets/footer/footer_about.jpg",
+    name: "Switch to experts!",
+    href: "/contact-us",
+  },
+];
 
 const bgClasses = [
   "text-red",
@@ -115,7 +115,7 @@ function Card({ item }: { item: any }) {
         className="z-20 h-full w-full transform object-cover transition-transform duration-500 group-hover:scale-110"
       />
       <div className="group absolute inset-0 z-20 flex h-full flex-col items-center justify-center bg-black/50">
-        <p className="font-anton text-4xl text-white">{item.name}</p>
+        <p className="font-anton text-3xl text-white">{item.name}</p>
         <motion.svg
           id="Layer_1"
           xmlns="http:www.w3.org/2000/svg"
