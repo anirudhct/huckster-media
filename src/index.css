@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "Staff";
-  src: url("/fonts/Staff-Regular.woff2") format("woff2");
+  font-family: "Figtree";
+  src: url("/fonts/Figtree-VariableFont_wght.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -25,7 +25,8 @@
   --color-green: #7ec54e;
   --color-cyan: #00d0d5;
   --font-anton: "Anton", sans-serif;
-  --font-staff: "Staff", "Times New Roman", serif;
+  --font-figtree: "Figtree", sans-serif;
+
 }
 
 body {
@@ -50,6 +51,7 @@ body {
 }
 
 @keyframes shake {
+
   10%,
   90% {
     transform: translate3d(-1px, -1px, 0);
