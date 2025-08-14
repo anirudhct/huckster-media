@@ -80,7 +80,7 @@ export default function DetailWork() {
 
       <div className="grid grid-cols-3">
         {[1, 2, 3].map((i) => (
-          <Img dynamic src={work.image} key={i} className="object-cover aspect-[9/12]"/>
+          <Img dynamic src={work?.image} key={i} className="object-cover aspect-[9/12]"/>
         ))}
       </div>
       {show && (
