@@ -78,38 +78,11 @@ export default function DetailWork() {
         </div>
       )}
 
-      {!isLoading && (
-        <div className="relative h-full w-full">
-          <video
-            loop
-            playsInline
-            muted
-            autoPlay
-            className="h-full w-full object-cover"
-          >
-            <source
-              src={`${import.meta.env.VITE_API_BASE_URL}/${work?.shortVideo}`}
-            />
-          </video>
-
-          <button
-            className="absolute inset-0 z-50 flex h-full w-full cursor-pointer items-center justify-center"
-            onClick={() =>
-              setShow(
-                `${import.meta.env.VITE_API_BASE_URL}/${work?.shortVideo}`,
-              )
-            }
-          >
-            <video
-              className="html-video z-50 !object-fill"
-              preload="metadata"
-              playsInline
-            >
-              <source src="/assets/play.webm" type="video/mp4" />
-            </video>
-          </button>
-        </div>
-      )}
+      <div className="grid grid-cols-3">
+        {[1, 2, 3].map((i) => (
+          <Img dynamic src={work.image} key={i} className="object-cover aspect-[9/12]"/>
+        ))}
+      </div>
       {show && (
         <div className="fixed top-0 right-0 left-0 z-50 h-screen w-full bg-black">
           <video
@@ -133,9 +106,22 @@ export default function DetailWork() {
 
       <Parallax offsetY={-100}>
         <CurvedCard className="bg-red">
-          <h4 className="font-anton text-center text-[20vw] leading-none">
-            Check out <br /> one more?
-          </h4>
+          <div className="font-anton text-center text-[20vw] leading-none">
+            <span className="sr-only">check out one more?</span>
+            <span
+              className="-z-10 bg-gradient-to-b from-white to-transparent bg-clip-text leading-none text-transparent"
+              style={{
+                WebkitMask: "linear-gradient(0deg, transparent 10%, #000 50%)",
+                WebkitMaskComposite: "source-in",
+                maskComposite: "intersect",
+              }}
+            >
+              Check out
+            </span>
+
+            <br />
+            <div className="z-50 -mt-[4vw] w-full leading-none">One more?</div>
+          </div>
         </CurvedCard>
       </Parallax>
 

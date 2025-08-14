@@ -12,7 +12,7 @@ export default function SeenHeard() {
           <div className="font-anton relative flex justify-center text-[23vw] leading-none">
             <span className="overflow-hidden">Hea</span>
             <Img
-              src="/assets/footer/footer_work.jpeg"
+              src="/assets/seen-heard.jpg"
               className="relative -mt-10 h-36 w-28 -rotate-6 object-cover sm:-mt-20 sm:h-96 sm:w-[26rem]"
             />
             <span className="overflow-hidden">rd</span>
