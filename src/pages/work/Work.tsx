@@ -1,3 +1,4 @@
+import Enquiry from "@/components/shared/Enquiry";
 import Parallax from "@/components/shared/Parallax";
 import ScreenFitText from "@/components/shared/ScreenFitText";
 import Img from "@/components/ui/Image";
@@ -58,6 +59,8 @@ export default function Work() {
           </Link>
         </Parallax>
       ))}
+
+      <Enquiry />
     </>
   );
 }
