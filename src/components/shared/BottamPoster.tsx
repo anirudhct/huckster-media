@@ -5,27 +5,27 @@ import Img from "../ui/Image";
 
 const data = [
   {
-    src: "/assets/footer/footer_about.jpg",
+    src: "/assets/footer/1.webp",
     name: "We",
     href: "/about-us",
   },
   {
-    src: "/assets/footer/footer_work.jpeg",
+    src: "/assets/footer/2.webp",
     name: "Think big",
     href: "/work",
   },
   {
-    src: "/assets/footer/footer_about.jpg",
+    src: "/assets/footer/3.webp",
     name: "For you",
     href: "/services",
   },
   {
-    src: "/assets/footer/footer_work.jpeg",
+    src: "/assets/footer/4.webp",
     name: "Seen & Heard",
     href: "/blogs",
   },
   {
-    src: "/assets/footer/footer_about.jpg",
+    src: "/assets/footer/5.webp",
     name: "Switch to experts!",
     href: "/contact-us",
   },
