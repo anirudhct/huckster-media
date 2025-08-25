@@ -37,14 +37,13 @@ export default function Footer() {
                 aria-label="socials"
               >
                 {s.label}
-                <div className="transition-tranform absolute w-0 group-hover:border border-white duration-300 group-hover:w-full" />
+                <div className="transition-tranform absolute w-0 border-white duration-300 group-hover:w-full group-hover:border" />
               </Link>
             ))}
           </div>
 
           <p className="4xl:text-lg 5xl:text-xl 7xl:text-2xl z-50 text-center text-sm xl:text-base">
-            © {new Date().getFullYear()} Huckster Productions. All Rights
-            Reserved.
+            © {new Date().getFullYear()} Huckster Group. All Rights Reserved.
           </p>
         </div>
       </footer>

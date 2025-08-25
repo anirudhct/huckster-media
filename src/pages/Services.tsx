@@ -147,8 +147,8 @@ export default function Services() {
 
   return (
     <>
-      <Head title="Services | Huckster Productions" />
-      <HeroVideo/>
+      <Head title="Services | Huckster Group" />
+      <HeroVideo />
       <div className="flex min-h-dvh items-end justify-center pt-10 text-center">
         <p className="text-blue-dark absolute inset-0 right-0 mx-auto flex h-full w-full max-w-[90vw] items-end justify-between pb-10 text-lg sm:pb-20 sm:text-[5vw]">
           <span className="font-anton">Where</span>
@@ -259,7 +259,7 @@ export default function Services() {
         })}
       </>
 
-     <Enquiry />
+      <Enquiry />
     </>
   );
 }

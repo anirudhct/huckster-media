@@ -10,7 +10,7 @@ export default function Blogs() {
   const { data } = useBlogs(1);
   return (
     <>
-      <Head title="Seen and Heard | Huckster Productions" />
+      <Head title="Seen and Heard | Huckster Group" />
       <div className="overflow-hidden">
         <div className="flex items-end justify-center pt-10 text-center">
           <ScreenFitText className="text-red" padding>

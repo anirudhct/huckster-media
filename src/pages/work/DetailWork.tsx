@@ -18,7 +18,7 @@ export default function DetailWork() {
   console.log(data);
   return (
     <>
-      <Head title={`${work?.title} | Huckster Productions`} />
+      <Head title={`${work?.title} | Huckster Group`} />
       <div className="relative min-h-screen text-center">
         <Img
           dynamic

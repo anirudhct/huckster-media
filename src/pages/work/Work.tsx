@@ -13,9 +13,9 @@ export default function Work() {
 
   return (
     <>
-      <Head title="Work | Huckster Productions" />
+      <Head title="Work | Huckster Group" />
 
-        <HeroVideo/>
+      <HeroVideo />
       <div className="flex items-end justify-center pt-10 text-center">
         <h1 className="font-anton mb-20 text-[30vw] leading-none sm:text-[43vw]">
           work

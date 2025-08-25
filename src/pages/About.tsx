@@ -12,7 +12,7 @@ import HeroVideo from "@/components/shared/HeroVideo";
 export default function About() {
   return (
     <>
-      <Head title="About Us | Huckster Productions" />
+      <Head title="About Us | Huckster Group" />
 
       <HeroVideo />
 
