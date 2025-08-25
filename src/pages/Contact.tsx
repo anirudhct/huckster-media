@@ -17,8 +17,8 @@ export default function Contact() {
 
   return (
     <div>
-      <h1 className="font-anton text-cyan text-center text-7xl sm:text-[18vw]">
-        What’s next?
+      <h1 className="font-anton text-cyan text-center text-6xl sm:text-[12vw]">
+      Switch to experts!
       </h1>
 
       <div className="font-anton sm:text:2xl grid grid-cols-3 text-sm md:text-2xl lg:text-3xl xl:text-4xl">

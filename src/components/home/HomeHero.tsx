@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
 import ScreenFitText from "../shared/ScreenFitText";
+import HeroVideo from "../shared/HeroVideo";
 
 const bgClasses = ["bg-red", "bg-pink", "bg-yellow", "bg-green", "bg-cyan"];
 
@@ -43,15 +44,7 @@ export default function HomeHero() {
 
       <ScreenFitText padding>HAPPEN</ScreenFitText>
 
-      <video
-        className="absolute top-0 -z-10 h-full w-full object-cover"
-        playsInline
-        muted
-        loop
-        autoPlay
-      >
-        <source src="/banner-2.mp4" />
-      </video>
+      <HeroVideo />
     </div>
   );
 }

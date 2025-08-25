@@ -7,6 +7,7 @@ import Img from "@/components/ui/Image";
 import { useInView } from "react-intersection-observer";
 import { motion } from "motion/react";
 import Enquiry from "@/components/shared/Enquiry";
+import HeroVideo from "@/components/shared/HeroVideo";
 
 const data = [
   {
@@ -147,6 +148,7 @@ export default function Services() {
   return (
     <>
       <Head title="Services | Huckster Productions" />
+      <HeroVideo/>
       <div className="flex min-h-dvh items-end justify-center pt-10 text-center">
         <p className="text-blue-dark absolute inset-0 right-0 mx-auto flex h-full w-full max-w-[90vw] items-end justify-between pb-10 text-lg sm:pb-20 sm:text-[5vw]">
           <span className="font-anton">Where</span>

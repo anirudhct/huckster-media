@@ -23,7 +23,7 @@ export default function HomeWork() {
               <div>
                 <ScreenFitText>{d.title}</ScreenFitText>
 
-                <p className="text-[1.75vw] font-medium text-white -mt-10">
+                <p className="text-[1.75vw] font-medium text-white">
                   {d.description}
                 </p>
               </div>

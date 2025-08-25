@@ -15,6 +15,7 @@ export default function DetailWork() {
   const [show, setShow] = useState<null | string>(null);
 
   const work = data?.data;
+  console.log(data);
   return (
     <>
       <Head title={`${work?.title} | Huckster Productions`} />
@@ -57,14 +58,16 @@ export default function DetailWork() {
             className="h-full w-full object-cover"
           >
             <source
-              src={`${import.meta.env.VITE_API_BASE_URL}/${work?.video}`}
+              src={`${import.meta.env.VITE_API_BASE_URL}/${work?.shortVideo}`}
             />
           </video>
 
           <button
             className="absolute inset-0 z-50 flex h-full w-full cursor-pointer items-center justify-center"
             onClick={() =>
-              setShow(`${import.meta.env.VITE_API_BASE_URL}/${work?.video}`)
+              setShow(
+                `${import.meta.env.VITE_API_BASE_URL}/${work?.shortVideo}`,
+              )
             }
           >
             <video
@@ -78,11 +81,11 @@ export default function DetailWork() {
         </div>
       )}
 
-      <div className="grid grid-cols-3">
+      {/* <div className="grid grid-cols-3">
         {[1, 2, 3].map((i) => (
           <Img dynamic src={work?.image} key={i} className="object-cover aspect-[9/12]"/>
         ))}
-      </div>
+      </div> */}
       {show && (
         <div className="fixed top-0 right-0 left-0 z-50 h-screen w-full bg-black">
           <video
@@ -129,19 +132,22 @@ export default function DetailWork() {
         offsetY={-100}
         className="grid grid-cols-1 gap-5 rounded-2xl bg-white p-5 md:grid-cols-3"
       >
-        {datas?.data?.slice(0, 3).map((d: TWork) => (
-          <Link
-            to={`/work/${d.slug}`}
-            key={d._id}
-            className="relative overflow-hidden rounded-xl"
-          >
-            <Img dynamic src={d.image} className="aspect-[3/4]" />
+        {datas?.data
+          ?.filter((d: TWork) => d.slug !== work?.slug)
+          ?.slice(0, 3)
+          ?.map((d: TWork) => (
+            <Link
+              to={`/work/${d.slug}`}
+              key={d._id}
+              className="relative overflow-hidden rounded-xl"
+            >
+              <Img dynamic src={d.image} className="aspect-[3/4]" />
 
-            <span className="font-anton absolute inset-0 flex h-full w-full items-end p-3 text-[5vw] md:p-5">
-              {d.title}
-            </span>
-          </Link>
-        ))}
+              <span className="font-anton absolute inset-0 flex h-full w-full items-end p-3 text-[5vw] leading-none md:p-5">
+                {d.title}
+              </span>
+            </Link>
+          ))}
       </Parallax>
     </>
   );

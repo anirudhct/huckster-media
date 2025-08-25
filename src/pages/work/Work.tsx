@@ -1,4 +1,5 @@
 import Enquiry from "@/components/shared/Enquiry";
+import HeroVideo from "@/components/shared/HeroVideo";
 import Parallax from "@/components/shared/Parallax";
 import ScreenFitText from "@/components/shared/ScreenFitText";
 import Img from "@/components/ui/Image";
@@ -13,6 +14,8 @@ export default function Work() {
   return (
     <>
       <Head title="Work | Huckster Productions" />
+
+        <HeroVideo/>
       <div className="flex items-end justify-center pt-10 text-center">
         <h1 className="font-anton mb-20 text-[30vw] leading-none sm:text-[43vw]">
           work

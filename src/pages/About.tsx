@@ -7,11 +7,15 @@ import ScreenFitText from "@/components/shared/ScreenFitText";
 import AboutService from "@/components/about/AboutService";
 import Team from "@/components/about/Team";
 import Enquiry from "@/components/shared/Enquiry";
+import HeroVideo from "@/components/shared/HeroVideo";
 
 export default function About() {
   return (
     <>
       <Head title="About Us | Huckster Productions" />
+
+      <HeroVideo />
+
       <div className="relative flex min-h-[80vh] items-center justify-center pt-10 text-center">
         <ScreenFitText padding className="text-red h-full w-full">
           Our Journey
@@ -58,7 +62,7 @@ export default function About() {
         <Team />
       </Parallax>
 
-     <Enquiry />
+      <Enquiry />
     </>
   );
 }
