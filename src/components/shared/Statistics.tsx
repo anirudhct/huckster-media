@@ -18,7 +18,7 @@ export default function Statistics() {
             />
           </div>
         </span>
-        <span className="relative block leading-none md:ml-20">
+        <span className="relative block leading-none">
           500+{" "}
           <div className="absolute top-10 left-10 w-full sm:left-40">
             <Img
