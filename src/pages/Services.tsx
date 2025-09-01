@@ -52,7 +52,7 @@ export default function Services() {
       </div>
 
       <Parallax offsetY={-140}>
-        <CurvedCard className="bg-[#102423] text-center">
+        <CurvedCard className="bg-blue-dark text-center">
           <ScreenFitText>Behind the Lens</ScreenFitText>
 
           <div className="mx-auto mt-5 mb-20 text-[2.2vw] sm:max-w-[90%]">
@@ -71,7 +71,7 @@ export default function Services() {
 
       <Parallax offsetY={-200}>
         <CurvedCard className="bg-[#121212] text-center">
-          <div className="mx-auto mt-10 flex w-full justify-between gap-5 text-[7vw]">
+          <div className="mx-auto mt-10 flex w-full justify-between gap-5 text-[9vw]">
             {services.map((s) => (
               <button
                 onClick={() => handleScrollToSection(s.title.toLowerCase())}
