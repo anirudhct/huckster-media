@@ -15,24 +15,24 @@ export default function DetailWork() {
   const [show, setShow] = useState<null | string>(null);
 
   const work = data?.data;
-  console.log(data);
+
   return (
     <>
       <Head title={`${work?.title} | Huckster Group`} />
-      <div className="relative min-h-screen text-center">
+      <div className="relative min-h-dvh text-center -mt-[113px]">
         <Img
           dynamic
           src={work?.image}
-          className="absolute -mt-20 h-full w-full"
+          className="absolute h-full w-full object-cover"
         />
-        <div className="absolute inset-0 z-20 h-full w-full">
+        <div className="absolute inset-0 z-20 h-full w-full flex justify-center items-end">
           <ScreenFitText maximum={500} padding>
             {work?.title}
           </ScreenFitText>
         </div>
       </div>
 
-      <div className="-mt-20 bg-[#1F1F1F] px-5 sm:px-8 md:px-10">
+      <div className="bg-[#1F1F1F] px-5 sm:px-8 md:px-10">
         <div className="grid gap-5 py-10 lg:grid-cols-2">
           <h4 className="lg:text-2xl xl:text-3xl">Tension?</h4>
 

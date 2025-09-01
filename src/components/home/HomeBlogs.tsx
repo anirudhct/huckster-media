@@ -19,7 +19,7 @@ export default function HomeBlogs() {
   });
 
   // Move the whole container to the left as you scroll
-  const translateX = useTransform(scrollYProgress, [0, 1], [0, -600]);
+   const translateX = useTransform(scrollYProgress, [0, 1], ["30%", "-100%"]);
 
   return (
     <CurvedCard className="overflow-hidden bg-black">

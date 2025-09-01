@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
-import { type ReactNode } from "react";
+import { type HTMLAttributes, type ReactNode } from "react";
 
 type CurvedCardProps = {
   className?: string;
   children: ReactNode;
   padding?: boolean;
-};
+}& HTMLAttributes<HTMLDivElement>;
 
 export default function CurvedCard({
   className,

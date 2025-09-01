@@ -34,19 +34,21 @@ export default function AnimatedBlogCard({
   });
 
   const marginTop = 100;
-  const marginLeft = index * 650;
+  const marginLeft = 750 + (320 * index);
+
+  console.log(marginLeft);
 
   return (
     <div
       ref={containerRef}
       style={{
         marginTop: index === 0 ? 0 : -marginTop,
-        marginLeft,
+       paddingLeft:marginLeft
       }}
-      className="relative"
+     className="w-fit"
     >
-      <Link className="relative" to={`/blogs/${data.slug}`}>
-        <motion.div className="sticky top-[20vh] flex h-[60vh] items-center justify-center">
+      <Link to={`/blogs/${data.slug}`}>
+        <motion.div className="sticky top-[40vh] flex h-[60vh] items-center justify-center">
           <motion.div
             style={{ rotate }}
             className="absolute h-[379px] w-[338px]"

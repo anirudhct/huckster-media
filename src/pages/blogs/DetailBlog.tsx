@@ -28,7 +28,7 @@ export default function DetailBlog() {
 
   return (
     <>
-      <Head title="Seen and Hard | Huckster Group" />
+      <Head title={`${blog?.title} | Huckster Group`} />
 
       <div className="overflow-hidden">
         <div className="overfow-hidden rounded-t-2xl border-black lg:mx-10 lg:mt-5 lg:rounded-t-4xl lg:bg-white">
