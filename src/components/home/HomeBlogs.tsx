@@ -55,7 +55,7 @@ export default function HomeBlogs() {
             <p className="font-anton z-30 p-4 text-lg text-white">{d.title}</p>
 
             <Img
-              src="/assets/svg/learn-more.svg"
+              src="/assets/svg/learn-more.png"
               className="h-auto w-32 object-contain"
             />
           </Link>

@@ -117,7 +117,7 @@ export default function DetailBlog() {
                     </p>
 
                     <Img
-                      src="/assets/svg/learn-more.svg"
+                      src="/assets/svg/learn-more.png"
                       className="h-auto w-32 object-contain"
                     />
                   </Link>
