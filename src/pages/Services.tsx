@@ -115,7 +115,7 @@ export default function Services() {
                     <div className="relative z-10 mt-10 space-y-10 p-5 text-center sm:p-8 md:p-10">
                       <ScreenFitText>{s.title}</ScreenFitText>
 
-                      <p className="text-[1.75vw] font-medium text-white">
+                      <p className="text-[1.75vw] font-medium text-white text-left">
                         {s.description}
                       </p>
 
