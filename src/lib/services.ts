@@ -8,14 +8,14 @@ export const services = [
         title: "Market Analysis",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "/public/assets/services/Market-Analysis.webp",
+        video: "/public/assets/services/MarketAnalysis.mp4",
       },
       {
         image: "/assets/services/TrendSpotting.webp",
         title: "Trend Spotting",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "/public/assets/services/Market-Analysis.webp",
+        video: "/assets/services/TrendSpotting.mp4",
       },
       {
         image: "/assets/services/Analysis-Reporting-Optimization.webp",
@@ -35,7 +35,7 @@ export const services = [
         title: "Target Analysis & Segmentation",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "/public/assets/services/Market-Analysis.webp",
+        video: "/public/assets/services/TargetAnalysisSegmentation.mp4",
       },
       {
         image: "/assets/services/Brand-Architecture-Positioning.webp",
@@ -62,28 +62,28 @@ export const services = [
         title: "Campaign Planning Development & Execution",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "/public/assets/services/Market-Analysis.webp",
+        video: "/public/assets/services/c",
       },
       {
         image: "/assets/services/Social-Media-Magic.webp",
         title: "Social Media Magic",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "/public/assets/services/Market-Analysis.webp",
+        video: "/public/assets/services/SocialMediaMagic.mp4",
       },
       {
         image: "/assets/services/Influencer-Connections.webp",
         title: "Influencer Connections",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "/public/assets/services/Market-Analysis.webp",
+        video: "/public/assets/services/InfluencerConnections.mp4",
       },
       {
         image: "/assets/services/Media-Partnerships.webp",
         title: "Media Partnerships",
         description:
           "To move the needle on retirement preparedness in the black community, we had to move the needle on what a campaign is. We tapped a Hip Hop icon to put our message to music and kickstart a movement.",
-        video: "/public/assets/services/Market-Analysis.webp",
+        video: "/public/assets/services/MediaPartnership.mp4",
       },
     ],
   },
