@@ -44,7 +44,7 @@ export default function Services() {
       <HeroVideo />
       <div className="flex min-h-dvh items-end justify-center pt-10 text-center">
         <p className="absolute inset-0 right-0 mx-auto flex h-full w-full max-w-[90vw] items-end justify-between pb-10 text-lg sm:pb-20 sm:text-[5vw]">
-          <Img src="/assets/svg/where-wild-ideas-thrive.png" className="w-full h-auto"/>
+          <Img src="/assets/svg/where-wild-ideas-thrive.svg" className="w-full h-auto"/>
         </p>
         <h1 className="font-anton mb-20 text-[20vw] leading-none sm:text-[25vw]">
           Huckster
