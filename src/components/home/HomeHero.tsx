@@ -52,7 +52,7 @@ export default function HomeHero() {
 function HeroText() {
   return (
     <h1 className="font-anton flex shrink-0 items-center gap-5 px-5 py-2 text-2xl leading-none sm:px-8 sm:py-3 sm:text-[8vw] md:px-10">
-      <TextFlip>We're here to make it</TextFlip>
+      <h1>We're here to make it</h1>
     </h1>
   );
 }

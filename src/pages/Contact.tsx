@@ -1,16 +1,16 @@
-import { useNavigate, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 import { motion } from "motion/react";
 import ContactForm from "@/components/contact/ContactForm";
 import CareerForm from "@/components/contact/CareersForm";
 
-const data = [
-  { href: "brand-partners", title: "Brand Partners" },
-  { href: "careers", title: "Careers" },
-  { href: "lets-create-together", title: "Let’s  Create  Together!" },
-];
+// const data = [
+//   { href: "brand-partners", title: "Brand Partners" },
+//   { href: "careers", title: "Careers" },
+//   { href: "lets-create-together", title: "Let’s  Create  Together!" },
+// ];
 
 export default function Contact() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
   const formType = searchParams.get("form");
@@ -21,7 +21,7 @@ export default function Contact() {
         Switch to experts!
       </h1>
 
-      <div className="font-anton sm:text:2xl grid grid-cols-3 text-sm md:text-2xl lg:text-3xl xl:text-4xl">
+      {/* <div className="font-anton sm:text:2xl grid grid-cols-3 text-sm md:text-2xl lg:text-3xl xl:text-4xl">
         {data.map((d) => (
           <button
             className="cursor-pointer uppercase"
@@ -31,7 +31,7 @@ export default function Contact() {
             {d.title}
           </button>
         ))}
-      </div>
+      </div> */}
 
       <div className="mt-10 grid grid-cols-1 gap-5 rounded-t-3xl bg-white p-5 text-black sm:grid-cols-2 sm:p-8 md:p-10 lg:p-14">
         <div className="font-anton flex h-full flex-col justify-between overflow-hidden">
