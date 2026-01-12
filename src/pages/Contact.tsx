@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from "react-router";
+import {useSearchParams } from "react-router";
 import { motion } from "motion/react";
 import ContactForm from "@/components/contact/ContactForm";
 import CareerForm from "@/components/contact/CareersForm";
@@ -10,7 +10,7 @@ const data = [
 ];
 
 export default function Contact() {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
   const formType = searchParams.get("form");
