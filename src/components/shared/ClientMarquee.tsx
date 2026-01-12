@@ -30,10 +30,10 @@ export default function ClientMarquee() {
     <div
       className="relative my-10 w-full cursor-pointer overflow-hidden sm:my-14 md:my-16 lg:my-20"
       onMouseEnter={() => {
-        startMarquee();
+        stopMarquee();
       }}
       onMouseLeave={() => {
-        stopMarquee();
+        startMarquee();
       }}
     >
       <motion.div

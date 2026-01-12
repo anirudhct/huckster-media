@@ -19,13 +19,15 @@ export default function Services() {
 
   const handleScrollToSection = (id: string) => {
     const el = document.getElementById(id.toLowerCase());
-    if (el) {
-      const yOffset = scrollOffsets[id.toLowerCase()] ?? -80;
-      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
+    if (!el) return;
+
+    const yOffset = scrollOffsets[id.toLowerCase()] ?? -80;
+    const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
   };
 
+  /* ------------------------- Title Split Logic ------------------------ */
   const renderSplitTitle = (title: string) => {
     if (title.length <= 22) {
       return <span className="block">{title}</span>;
@@ -36,26 +38,43 @@ export default function Services() {
     const after = title.indexOf(" ", mid);
 
     let splitIndex = mid;
-
-    if (before === -1 && after === -1) {
-      return <span className="block">{title}</span>;
-    }
-
+    if (before === -1 && after === -1) return <span>{title}</span>;
     if (before === -1) splitIndex = after;
     else if (after === -1) splitIndex = before;
-    else {
-      splitIndex = (mid - before < after - mid) ? before : after;
-    }
-
-    const part1 = title.substring(0, splitIndex).trim();
-    const part2 = title.substring(splitIndex).trim();
+    else splitIndex = mid - before < after - mid ? before : after;
 
     return (
       <>
-        <span className="block">{part1}</span>
-        <span className="block">{part2}</span>
+        <span className="block">{title.slice(0, splitIndex).trim()}</span>
+        <span className="block">{title.slice(splitIndex).trim()}</span>
       </>
     );
+  };
+
+  const isSplitTitle = (title: string) => title.length > 22;
+
+  const getTitleFontSize = (title: string) => {
+    const len = title.length;
+    const split = isSplitTitle(title);
+
+    //  Double-line titles
+    if (split) {
+      if (len <= 31) return "text-[clamp(3.3rem,14vw,14rem)]";
+      if (len <= 35) return "text-[clamp(3.2rem,13vw,13rem)]";
+      if (len <= 37) return "text-[clamp(3.2rem,13vw,13rem)]";
+      if (len <= 42) return "text-[clamp(2.9rem,12vw,10rem)]";
+      return "text-[clamp(2.3rem,9vw,7rem)]";
+    }
+
+    //  Single-line titles
+    if (len <= 14) return "text-[clamp(4.1rem,18vw,15rem)]";
+    if (len <= 16) return "text-[clamp(4rem,18vw,14rem)]";
+    if (len <= 18) return "text-[clamp(3.5rem,16vw,12rem)]";
+    if (len <= 20) return "text-[clamp(3rem,14vw,10rem)]";
+    if (len <= 21) return "text-[clamp(3.2rem,13vw,11rem)]";
+    if (len <= 22) return "text-[clamp(3rem,14vw,10rem)]";
+
+    return "text-[clamp(2.6rem,12vw,9rem)]";
   };
 
   const titleVariant = {
@@ -63,10 +82,7 @@ export default function Services() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        easeInOut: [0.25, 0.1, 0.25, 1],
-      },
+      transition: { duration: 0.6, easeInOut: [0.25, 0.1, 0.25, 1] },
     },
   };
 
@@ -76,10 +92,13 @@ export default function Services() {
       <HeroVideo />
 
       <div className="flex min-h-dvh items-end justify-center pt-10 text-center">
-        <p className="absolute inset-0 right-0 mx-auto flex h-full w-full max-w-[90vw] items-end justify-between pb-10 text-lg sm:pb-20 sm:text-[5vw]">
-          <Img src="/assets/svg/where-wild-ideas-thrive.svg" className="w-full h-auto" />
+        <p className="absolute inset-0 mx-auto flex h-full w-full max-w-[90vw] items-end pb-10 sm:pb-20">
+          <Img
+            src="/assets/svg/where-wild-ideas-thrive.svg"
+            className="w-full h-auto"
+          />
         </p>
-        <h1 className="font-anton mb-20 text-[20vw] leading-none sm:text-[25vw]">
+        <h1 className="font-anton mb-20 text-[20vw] sm:text-[25vw] leading-none">
           Huckster
         </h1>
       </div>
@@ -89,10 +108,9 @@ export default function Services() {
           <ScreenFitText>Behind the Lens</ScreenFitText>
           <div className="mx-auto mt-5 mb-20 text-[2.2vw] sm:max-w-[90%]">
             Our diverse community values human connection and strives for high
-            creative standards. We specialize in delivering the right message to
-            the right audience at the right time, forging meaningful connections
-            between visionary brands and their communities through creativity,
-            culture, and technology.
+            creative standards. We deliver the right message to the right
+            audience at the right time through creativity, culture, and
+            technology.
           </div>
         </CurvedCard>
       </Parallax>
@@ -107,8 +125,8 @@ export default function Services() {
             {services.map((cat) => (
               <button
                 key={cat.title}
-                onClick={() => handleScrollToSection(cat.title.toLowerCase())}
-                className={`font-anton cursor-pointer uppercase hover:${cat.color} transition-colors`}
+                onClick={() => handleScrollToSection(cat.title)}
+                className={`font-anton uppercase cursor-pointer transition-colors hover:${cat.color}`}
               >
                 {cat.title}
               </button>
@@ -117,12 +135,8 @@ export default function Services() {
         </CurvedCard>
       </Parallax>
 
-      {/* Detailed Services Sections */}
       {services.map((category) => {
-        const [ref, inView] = useInView({
-          triggerOnce: false,
-          threshold: 0.3,
-        });
+        const [ref, inView] = useInView({ threshold: 0.3 });
 
         return (
           <section key={category.title} id={category.title.toLowerCase()}>
@@ -139,7 +153,7 @@ export default function Services() {
             </CurvedCard>
 
             {category.services.map((service, i) => (
-              <Parallax offsetY={-200} key={`${service.title}-${i}`}>
+              <Parallax key={i} offsetY={-200}>
                 <div className="relative overflow-hidden rounded-t-4xl">
                   <Img
                     src={service.image}
@@ -147,15 +161,22 @@ export default function Services() {
                   />
                   <div className="absolute inset-0 -z-10 bg-black/50" />
 
-                  <div className="relative z-10 mt-10 space-y-10 p-5 text-center sm:p-8 md:p-10">
-
+                  <div className="relative z-10 mt-10 space-y-10 p-5 sm:p-8 md:p-10">
                     <div className="w-screen -ml-[calc(50vw-50%)] text-center">
-                      <h1 className="font-anton uppercase text-[clamp(3rem,14vw,10rem)] leading-[0.9] tracking-tight text-white">
+                      <h1
+                        className={`font-anton uppercase tracking-tight text-white
+                        ${
+                          isSplitTitle(service.title)
+                            ? "leading-[1.05]"
+                            : "leading-[0.9]"
+                        }
+                        ${getTitleFontSize(service.title)}`}
+                      >
                         {renderSplitTitle(service.title)}
                       </h1>
                     </div>
 
-                    <p className="text-[1.5vw] font-medium text-white text-left max-w-[90vw] mx-auto">
+                    <p className="mx-auto max-w-[90vw] text-left text-[1.5vw] font-medium text-white">
                       {service.description}
                     </p>
 
@@ -165,7 +186,7 @@ export default function Services() {
                         muted
                         loop
                         playsInline
-                        className="mx-auto mt-20 mb-10 aspect-video max-w-2xl object-contain"
+                        className="mx-auto aspect-video max-w-2xl object-contain"
                       >
                         <source src={service.video} />
                       </video>

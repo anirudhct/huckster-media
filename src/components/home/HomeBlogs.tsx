@@ -8,6 +8,7 @@ import Img from "../ui/Image";
 import { useFeaturedBlog } from "@/hooks/useBlog";
 import type { TBlog } from "@/types/api";
 
+
 export default function HomeBlogs() {
   const { data } = useFeaturedBlog();
   const navigate = useNavigate();
@@ -18,11 +19,30 @@ export default function HomeBlogs() {
     offset: ["start end", "end start"],
   });
 
-  // Move the whole container to the left as you scroll
-   const translateX = useTransform(scrollYProgress, [0, 1], ["30%", "-100%"]);
+
+  const translateX = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["45%", "-150%"]
+  );
+
 
   return (
-    <CurvedCard className="overflow-hidden bg-black">
+    <CurvedCard className="relative min-h-[500px] overflow-hidden bg-black"> {/* Added min-h for safety */}
+
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          playsInline
+          muted
+          loop
+          autoPlay
+        >
+          <source src="/banner.mp4" />
+        </video>
+      </div>
+
       <motion.div
         className="mb-20 hidden lg:block"
         ref={containerRef}
@@ -66,5 +86,6 @@ export default function HomeBlogs() {
         check all blogs
       </Button>
     </CurvedCard>
+
   );
 }

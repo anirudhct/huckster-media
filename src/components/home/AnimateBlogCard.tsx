@@ -26,32 +26,33 @@ export default function AnimatedBlogCard({
   const rotate = useTransform(
     scrollYProgress,
     [0, 0.5, 0.9],
-    ["-20deg", "0deg", "-20deg"],
+    ["-22deg", "0deg", "-22deg"]
   );
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
-    setIsVisible(v >= 0.5 && v <= 0.8);
+    setIsVisible(v >= 0.35 && v <= 0.7);
   });
 
-  const marginTop = 100;
-  const marginLeft = 750 + (320 * index);
-
-  console.log(marginLeft);
+  const marginTop = 150;
+  const marginLeft = 920 + 420 * index;
 
   return (
     <div
       ref={containerRef}
       style={{
         marginTop: index === 0 ? 0 : -marginTop,
-       paddingLeft:marginLeft
+        paddingLeft: marginLeft,
       }}
-     className="w-fit"
+      className="w-fit"
     >
+
+
       <Link to={`/blogs/${data.slug}`}>
-        <motion.div className="sticky top-[40vh] flex h-[60vh] items-center justify-center">
+        <motion.div className="sticky top-[32vh] flex h-[80vh] items-center justify-center">
           <motion.div
             style={{ rotate }}
-            className="absolute h-[379px] w-[338px]"
+
+            className="absolute h-[520px] w-[460px]"
           >
             <div className="relative h-full w-full">
               <Img
@@ -61,19 +62,19 @@ export default function AnimatedBlogCard({
               <Img
                 dynamic
                 src={data.image}
-                className="absolute inset-0 z-20 h-full w-full object-cover p-3"
+                className="absolute inset-0 z-20 h-full w-full object-cover p-5"
               />
             </div>
 
             {isVisible && (
               <>
-                <p className="font-anton z-30 w-[90%] p-4 text-lg text-white">
+                <p className="font-anton z-30 w-[90%] p-5 text-2xl text-white">
                   {data.title}
                 </p>
 
                 <Img
                   src="/assets/svg/learn-more.png"
-                  className="h-auto w-32 object-contain"
+                  className="h-auto w-44 object-contain"
                 />
               </>
             )}
