@@ -79,7 +79,7 @@ export default function About() {
             className="object-contain w-[18rem] h-auto"
           />
           <Img
-            src="/assets/about/it.svg"
+            src="/assets/about/it1.svg"
             className="object-contain w-[10rem] h-auto"
           />
             </h3>
