@@ -42,18 +42,21 @@ export default function Statistics() {
         </span>
         <span className="relative block leading-none md:ml-40">
           3{" "}
-          <div className="absolute top-10 left-10 sm:left-40 flex gap-5 w-[80vw]">
+          <div className="absolute top-6 left-6 sm:left-20 md:left-40 flex gap-3 sm:gap-5 w-[90vw] sm:w-[80vw] md:w-auto">
+
             <Img
               src="/assets/svg/continents.svg"
-              className="object-contain w-[34rem] h-auto"
+              className="object-contain w-40 sm:w-64 md:w-[34rem] h-auto"
             />
+
             <Img
               src="/assets/svg/covered.svg"
-              className="object-contain w-[25rem] h-auto"
+              className="object-contain w-32 sm:w-52 md:w-[25rem] h-auto"
             />
-          </div>
 
+          </div>
         </span>
+
         <span className="relative block leading-none md:ml-40">
           50+{" "}
           <div className="absolute top-10 left-10 w-full sm:left-40">

@@ -74,7 +74,8 @@ export default function Services() {
     if (len <= 21) return "text-[clamp(3.2rem,13vw,11rem)]";
     if (len <= 22) return "text-[clamp(3rem,14vw,10rem)]";
 
-    return "text-[clamp(2.6rem,12vw,9rem)]";
+    return "text-[clamp(3rem,10vw,9rem)]";
+
   };
 
   const titleVariant = {
@@ -91,14 +92,14 @@ export default function Services() {
       <Head title="Services | Huckster Group" />
       <HeroVideo />
 
-      <div className="flex min-h-dvh items-end justify-center pt-10 text-center">
-        <p className="absolute inset-0 mx-auto flex h-full w-full max-w-[90vw] items-end pb-10 sm:pb-20">
+      <div className="relative flex min-h-[80vh] items-center justify-center pt-10 text-center">
+        <p className="absolute inset-0 mx-auto flex h-full w-full max-w-[90vw] items-center ">
           <Img
             src="/assets/svg/where-wild-ideas-thrive.svg"
             className="w-full h-auto"
           />
         </p>
-        <h1 className="font-anton mb-20 text-[20vw] sm:text-[25vw] leading-none">
+        <h1 className="font-anton mb-10 text-[20vw] sm:text-[25vw] leading-none">
           Huckster
         </h1>
       </div>
