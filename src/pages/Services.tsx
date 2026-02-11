@@ -57,25 +57,26 @@ export default function Services() {
     const len = title.length;
     const split = isSplitTitle(title);
 
-    //  Double-line titles
+    // Logic: [Mobile Size] lg:[Original Desktop Size]
+    
+    // Double-line titles (Split)
     if (split) {
-      if (len <= 31) return "text-[clamp(3.3rem,14vw,14rem)]";
-      if (len <= 35) return "text-[clamp(3.2rem,13vw,13rem)]";
-      if (len <= 37) return "text-[clamp(3.2rem,13vw,13rem)]";
-      if (len <= 42) return "text-[clamp(2.9rem,12vw,10rem)]";
-      return "text-[clamp(2.3rem,9vw,7rem)]";
+      if (len <= 31) return "text-[clamp(4.0rem,19vw,13rem)] lg:text-[clamp(3.3rem,14vw,14rem)]";
+      if (len <= 35) return "text-[clamp(4.2rem,20vw,13rem)] lg:text-[clamp(3.2rem,13vw,13rem)]";
+      if (len <= 37) return "text-[clamp(4.5rem,18vw,13rem)] lg:text-[clamp(3.2rem,13vw,13rem)]";
+      if (len <= 42) return "text-[clamp(3.8rem,16vw,10rem)] lg:text-[clamp(2.9rem,12vw,10rem)]";
+      return "text-[clamp(3rem,12vw,7rem)] lg:text-[clamp(2.3rem,9vw,7rem)]";
     }
 
-    //  Single-line titles
-    if (len <= 14) return "text-[clamp(4.1rem,18vw,15rem)]";
-    if (len <= 16) return "text-[clamp(4rem,18vw,14rem)]";
-    if (len <= 18) return "text-[clamp(3.5rem,16vw,12rem)]";
-    if (len <= 20) return "text-[clamp(3rem,14vw,10rem)]";
-    if (len <= 21) return "text-[clamp(3.2rem,13vw,11rem)]";
-    if (len <= 22) return "text-[clamp(3rem,14vw,10rem)]";
+    // Single-line titles
+    if (len <= 14) return "text-[clamp(6rem,30vw,17rem)] lg:text-[clamp(4.1rem,18vw,15rem)]";
+    if (len <= 16) return "text-[clamp(5.8rem,28vw,15rem)] lg:text-[clamp(4rem,18vw,14rem)]";
+    if (len <= 18) return "text-[clamp(4rem,18vw,8rem)] lg:text-[clamp(3.5rem,16vw,12rem)]";
+    if (len <= 20) return "text-[clamp(4.5rem,20vw,10rem)] lg:text-[clamp(3rem,14vw,10rem)]";
+    if (len <= 21) return "text-[clamp(4rem,18vw,8rem)] lg:text-[clamp(3.2rem,13vw,11rem)]";
+    if (len <= 22) return "text-[clamp(4rem,20vw,10rem)] lg:text-[clamp(3rem,14vw,10rem)]";
 
-    return "text-[clamp(3rem,10vw,9rem)]";
-
+    return "text-[clamp(4rem,15vw,9rem)] lg:text-[clamp(3rem,10vw,9rem)]";
   };
 
   const titleVariant = {
