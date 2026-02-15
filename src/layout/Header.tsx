@@ -111,7 +111,7 @@ export default function Header() {
                     },
                   },
                 }}
-                className="relative flex flex-1 flex-col justify-end gap-2 text-lg"
+                className="relative flex flex-1 flex-col justify-center gap-2 text-lg"
               >
                 {menus.map((item, index) => (
                   <motion.div
@@ -120,7 +120,7 @@ export default function Header() {
                       hidden: { opacity: 0, x: 10 },
                       visible: { opacity: 1, x: 0 },
                     }}
-                    className="font-anton z-50 text-left text-[2.75rem] leading-none sm:text-[5.5vw]"
+                    className="font-anton z-50 text-left text-[2.4rem] leading-none sm:text-[5.5vw]"
                   >
                     <NavLink
                       to={item.href}

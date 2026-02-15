@@ -5,7 +5,7 @@ import Img from "../ui/Image";
 export default function Statistics() {
   return (
     <CurvedCard
-      className="font-anton bg-black text-center text-[25vw] md:text-left"
+      className="font-anton bg-black text-[25vw] md:text-left"
       padding={false}
     >
       <div className="overflow-hidden p-5 sm:p-8 md:p-10 lg:p-12 xl:p-14">
@@ -14,7 +14,7 @@ export default function Statistics() {
           <div className="absolute top-10 left-10 w-full sm:left-40">
             <Img
               src="/assets/svg/years-in-mena.svg"
-              className="object-conatin mx-auto w-[50vw] sm:mx-0 h-auto"
+              className="object-conatin w-[50vw] sm:mx-0 h-auto"
             />
           </div>
         </span>
@@ -23,16 +23,16 @@ export default function Statistics() {
           <div className="absolute top-10 left-10 w-full sm:left-40">
             <Img
               src="/assets/svg/brnads-transformed.svg"
-              className="object-conatin mx-auto w-[70vw] sm:mx-0"
+              className="object-conatin w-[70vw] sm:mx-0"
             />
           </div>
         </span>
-        <span className="relative block leading-none md:ml-40">
+        <span className="relative block leading-none ml-8 md:ml-40">
           800+{" "}
-          <div className="absolute top-10 left-10 w-full sm:left-40">
+          <div className="absolute top-10 left-6 w-full sm:left-40">
             <Img
               src="/assets/svg/campaigns.svg"
-              className="object-conatin mx-auto w-[60vw] sm:mx-0"
+              className="object-conatin w-[50vw] md:w-[60vw] sm:mx-0"
             />
             <Img
               src="/assets/svg/(in-a-good-way).svg"
@@ -40,29 +40,29 @@ export default function Statistics() {
             />
           </div>
         </span>
-        <span className="relative block leading-none md:ml-40">
+        <span className="relative block leading-none ml-8 md:ml-40">
           3{" "}
-          <div className="absolute top-6 left-6 sm:left-20 md:left-40 flex gap-3 sm:gap-5 w-[90vw] sm:w-[80vw] md:w-auto">
+          <div className="absolute top-10 left-6 sm:left-20 md:left-40 flex gap-3 sm:gap-5 w-[90vw] sm:w-[80vw] md:w-auto">
 
             <Img
               src="/assets/svg/continents.svg"
-              className="object-contain w-40 sm:w-64 md:w-[34rem] h-auto"
+              className="object-contain w-38 sm:w-64 md:w-[34rem] h-auto"
             />
 
             <Img
               src="/assets/svg/covered.svg"
-              className="object-contain w-32 sm:w-52 md:w-[25rem] h-auto"
+              className="object-contain w-28 sm:w-52 md:w-[25rem] h-auto"
             />
 
           </div>
         </span>
 
-        <span className="relative block leading-none md:ml-40">
+        <span className="relative block leading-none ml-8 md:ml-40">
           50+{" "}
-          <div className="absolute top-10 left-10 w-full sm:left-40">
+          <div className="absolute top-10 left-6 w-full sm:left-40">
             <Img
               src="/assets/svg/creative-minds.svg"
-              className="object-conatin mx-auto w-[60vw] sm:mx-0"
+              className="object-conatin  w-[60vw] sm:mx-0"
             />
           </div>
         </span>
