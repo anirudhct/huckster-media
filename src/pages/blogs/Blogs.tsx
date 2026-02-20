@@ -50,14 +50,14 @@ export default function Blogs() {
                   />
                 </div>
 
-                <span>{formattedDate(d.date)}</span>
-                <h3 className="font-anton mt-5 text-lg sm:w-[75%] sm:text-xl md:text-[1.3rem]">
+                <span className="md:text-[0.8vw]">{formattedDate(d.date)}</span>
+                <h3 className="font-anton mt-5 text-lg sm:w-[75%] sm:text-xl md:text-[1.3vw]">
                   {d.title}
                 </h3>
 
                 <Img
                   src="/assets/svg/learn-more.png"
-                  className="h-auto w-32 object-contain"
+                  className="h-auto w-32 2xl:w-[12vw] object-contain"
                 />
               </Link>
             );

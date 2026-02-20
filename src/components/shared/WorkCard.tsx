@@ -6,7 +6,7 @@ import type { TWork } from "@/types/api";
 
 export default function WorkCard({ work, idx }: { work: TWork; idx: number }) {
   return (
-    <Parallax offsetY={-200} className="overflow-hidden rounded-t-4xl">
+    <Parallax offsetY={-200} className="overflow-hidden rounded-t-4xl ">
       <Link to={`/work/${work.slug}`} className="relative" key={work.title}>
         <Img
           dynamic

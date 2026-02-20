@@ -19,7 +19,7 @@ export default function FloatingTextarea({
       />
       <label
         htmlFor={id}
-        className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-black"
+        className="absolute top-3 2xl:top-0 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm 2xl:text-[1vw] text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-black"
       >
         {label}
       </label>

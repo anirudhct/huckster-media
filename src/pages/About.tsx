@@ -26,11 +26,11 @@ export default function About() {
                items-center justify-items-center 
                text-[8vw] sm:text-[6vw] md:text-[5vw] text-white">
 
-          <Img src="/assets/about/it.svg" className="object-contain w-12 sm:w-14 md:w-40" />
-          <Img src="/assets/about/cloud.svg" className="object-contain w-28 sm:w-40 md:w-56" />
-          <Img src="/assets/about/be.svg" className="object-contain w-12 sm:w-28 md:w-40" />
-          <Img src="/assets/about/yours.svg" className="object-contain w-24 sm:w-36 md:w-52" />
-          <Img src="/assets/about/too.svg" className="object-contain w-12 sm:w-32 md:w-44" />
+          <Img src="/assets/about/it.svg" className="object-contain w-12 sm:w-14 md:w-40  xl:w-[12vw]" />
+          <Img src="/assets/about/cloud.svg" className="object-contain w-28 sm:w-40 md:w-56 xl:w-[40vw]" />
+          <Img src="/assets/about/be.svg" className="object-contain w-12 sm:w-28 md:w-40 xl:w-[12vw]" />
+          <Img src="/assets/about/yours.svg" className="object-contain w-24 sm:w-36 md:w-52 xl:w-[40vw]" />
+          <Img src="/assets/about/too.svg" className="object-contain w-12 sm:w-32 md:w-44 xl:w-[12vw]" />
 
         </p>
       </div>
@@ -54,11 +54,11 @@ export default function About() {
                items-center justify-items-center 
                text-[8vw] sm:text-[6vw] md:text-[5vw] text-white">
 
-              <Img src="/assets/about/and.svg" className="object-contain w-14 sm:w-20 md:w-60" />
-              <Img src="/assets/about/why.svg" className="object-contain w-14 sm:w-20 md:w-60" />
-              <Img src="/assets/about/you.svg" className="object-contain w-22 sm:w-32 md:w-96" />
-              <Img src="/assets/about/love.svg" className="object-contain w-18 sm:w-24 md:w-72" />
-              <Img src="/assets/about/it1.svg" className="object-contain w-12 sm:w-16 md:w-40" />
+              <Img src="/assets/about/and.svg" className="object-contain w-14 sm:w-20 md:w-60 xl:w-[18vw]" />
+              <Img src="/assets/about/why.svg" className="object-contain w-14 sm:w-20 md:w-60 xl:w-[20vw]" />
+              <Img src="/assets/about/you.svg" className="object-contain w-22 sm:w-32 md:w-96 xl:w-[28vw]" />
+              <Img src="/assets/about/love.svg" className="object-contain w-18 sm:w-24 md:w-72 xl:w-[18vw]" />
+              <Img src="/assets/about/it1.svg" className="object-contain w-12 sm:w-16 md:w-40 xl:w-[12vw]" />
 
             </h3>
 

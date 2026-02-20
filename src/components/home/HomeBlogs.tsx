@@ -8,7 +8,6 @@ import Img from "../ui/Image";
 import { useFeaturedBlog } from "@/hooks/useBlog";
 import type { TBlog } from "@/types/api";
 
-
 export default function HomeBlogs() {
   const { data } = useFeaturedBlog();
   const navigate = useNavigate();
@@ -19,21 +18,19 @@ export default function HomeBlogs() {
     offset: ["start end", "end start"],
   });
 
-
+  
+  const itemCount = data?.data?.length || 1;
   const translateX = useTransform(
     scrollYProgress,
     [0, 1],
-    ["45%", "-150%"]
+    ["45vw", `-${itemCount * 20}vw`] 
   );
 
-
   return (
-    <CurvedCard className="relative min-h-[500px] overflow-hidden bg-black"> {/* Added min-h for safety */}
-
-      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-
+    <CurvedCard className="relative min-h-[100vh] overflow-hidden bg-black">
+      <div className="pointer-events-none absolute inset-0 z-0">
         <video
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover opacity-60"
           playsInline
           muted
           loop
@@ -43,49 +40,42 @@ export default function HomeBlogs() {
         </video>
       </div>
 
+      {/* Desktop View */}
       <motion.div
         className="mb-20 hidden lg:block"
         ref={containerRef}
         style={{ x: translateX }}
       >
-        {data?.data?.map((d: TBlog, idx: number) => (
-          <AnimatedBlogCard data={d} index={idx} />
-        ))}
+        <div className="flex flex-col">
+           {data?.data?.map((d: TBlog, idx: number) => (
+            <AnimatedBlogCard key={d.slug || idx} data={d} index={idx} />
+          ))}
+        </div>
       </motion.div>
 
-      <div className="mx-auto space-y-10 lg:hidden">
+      {/* Mobile View */}
+      <div className="relative z-10 mx-auto space-y-10 px-6 lg:hidden">
         {data?.data?.map((d: TBlog, idx: number) => (
           <Link
-            className="mx-auto flex h-full w-full max-w-[318px] -rotate-3 flex-col overflow-hidden"
+            className="mx-auto flex h-full w-full max-w-[318px] -rotate-3 flex-col"
             to={`/blogs/${d.slug}`}
             key={idx}
           >
-            <div className="relative h-[360px] w-[318px] overflow-hidden">
-              <Img
-                src="/assets/frame.avif"
-                className="pointer-events-none absolute h-full w-full object-contain"
-              />
-              <Img
-                dynamic
-                src={d.image}
-                className="absolute inset-0 z-20 h-full w-full object-cover p-3"
-              />
+            {/* ... keeping mobile code the same ... */}
+            <div className="relative h-[360px] w-[318px]">
+               <Img src="/assets/frame.avif" className="absolute h-full w-full object-contain" />
+               <Img dynamic src={d.image} className="absolute inset-0 z-20 h-full w-full object-cover p-3" />
             </div>
-
-            <p className="font-anton z-30 p-4 text-lg text-white">{d.title}</p>
-
-            <Img
-              src="/assets/svg/learn-more.png"
-              className="h-auto w-32 object-contain"
-            />
+            <p className="font-anton p-4 text-lg text-white">{d.title}</p>
           </Link>
         ))}
       </div>
 
-      <Button onClick={() => navigate("/blogs")} className="mt-40 text-[5vw]">
-        check all blogs
-      </Button>
+      <div className="relative z-20 flex justify-center pb-20">
+        <Button onClick={() => navigate("/blogs")} className="text-[4vw] lg:text-[2vw]">
+          check all blogs
+        </Button>
+      </div>
     </CurvedCard>
-
   );
 }

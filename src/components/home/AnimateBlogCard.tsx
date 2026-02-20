@@ -3,6 +3,7 @@ import {
   useScroll,
   useTransform,
   useMotionValueEvent,
+  AnimatePresence,
 } from "motion/react";
 import { useRef, useState } from "react";
 import Img from "../ui/Image";
@@ -30,29 +31,35 @@ export default function AnimatedBlogCard({
   );
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
+    // Range when the card is in the center of the screen
     setIsVisible(v >= 0.35 && v <= 0.7);
   });
 
-  const marginTop = 150;
-  const marginLeft = 920 + 420 * index;
+  // RESPONSIVE SPACING for 27-inch screens
+  const cardWidthVw = 22; // 22% of screen width
+  const horizontalGapVw = 6; 
+  const marginLeft = `calc(10vw + ${index * (cardWidthVw + horizontalGapVw)}vw)`;
+  
+  // Vertical overlap for the "staircase" effect
+  const overlapY = "10vh"; 
 
   return (
     <div
       ref={containerRef}
       style={{
-        marginTop: index === 0 ? 0 : -marginTop,
+        marginTop: index === 0 ? 0 : `-${overlapY}`,
         paddingLeft: marginLeft,
       }}
       className="w-fit"
     >
-
-
-      <Link to={`/blogs/${data.slug}`}>
-        <motion.div className="sticky top-[32vh] flex h-[80vh] items-center justify-center">
+      <Link to={`/blogs/${data.slug}`} className="block">
+        {/* Sticky container needs enough height to hold image + text below it */}
+        <motion.div className="sticky top-[10vh] flex h-[85vh] flex-col items-center justify-start">
+          
+          {/* 1. THE IMAGE FRAME */}
           <motion.div
             style={{ rotate }}
-
-            className="absolute h-[520px] w-[460px]"
+            className="relative h-[65vh] w-[28vw] min-w-[320px] min-h-[400px]"
           >
             <div className="relative h-full w-full">
               <Img
@@ -62,23 +69,35 @@ export default function AnimatedBlogCard({
               <Img
                 dynamic
                 src={data.image}
-                className="absolute inset-0 z-20 h-full w-full object-cover p-5"
+                className="absolute inset-0 z-20 h-full w-full object-cover p-[6%]" 
               />
             </div>
-
-            {isVisible && (
-              <>
-                <p className="font-anton z-30 w-[90%] p-5 text-2xl text-white">
-                  {data.title}
-                </p>
-
-                <Img
-                  src="/assets/svg/learn-more.png"
-                  className="h-auto w-44 object-contain"
-                />
-              </>
-            )}
           </motion.div>
+
+          {/* 2. THE TEXT CONTENT (Positioned Below) */}
+          <div className="mt-6 w-[22vw] min-w-[320px] px-2">
+            <AnimatePresence>
+              {isVisible && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.4 }}
+                  className="flex flex-col gap-4"
+                >
+                  <p className="font-anton text-[1.8vw] leading-[1.1] text-white line-clamp-2 uppercase">
+                    {data.title}
+                  </p>
+
+                  <Img
+                    src="/assets/svg/learn-more.png"
+                    className="h-auto w-[12vw] max-w-[180px] object-contain"
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
         </motion.div>
       </Link>
     </div>

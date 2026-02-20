@@ -36,19 +36,19 @@ export default function DetailBlog() {
             <Img
               dynamic
               src={blog?.image}
-              className="fixed top-0 left-0 -z-10 w-full object-cover lg:relative lg:z-10 lg:h-auto lg:w-[45%] lg:rounded-4xl"
+              className="fixed top-0 left-0 -z-10 w-full object-cover lg:relative lg:z-10 lg:h-auto lg:w-[45%]  lg:ronunded-t-4xl "
             />
 
             <div className="lg:hiden mt-[10rem] w-full space-y-5 overflow-hidden rounded-t-2xl bg-white px-5 py-10 text-black normal-case sm:px-8 md:space-y-8 md:px-10 lg:mt-0 lg:space-y-10 lg:rounded-t-4xl">
               <div className="mb-10 uppercase">
-                <p className="text-gray-700 lg:text-lg">Words by</p>
-                <h4 className="text-lg font-medium sm:text-xl md:text-2xl lg:text-3xl">
+                <p className="text-gray-700 lg:text-lg 2xl:text-[1.5vw]">Words by</p>
+                <h4 className="text-lg font-medium sm:text-xl md:text-2xl lg:text-3xl 2xl:text-[2vw]">
                   {blog?.wordsBy}
                 </h4>
-                <h4 className="text-red">{formattedDate(blog?.date)}</h4>
+                <h4 className="text-red 2xl:text-[1.5vw]">{formattedDate(blog?.date)}</h4>
               </div>
 
-              <div className="bg-red font-anton w-fit px-5 py-1.5 text-white uppercase">
+              <div className="bg-red font-anton w-fit px-5 py-1.5 text-white uppercase 2xl:text-[3vw]">
                 {blog?.category}
               </div>
 
@@ -67,7 +67,7 @@ export default function DetailBlog() {
             </button>
           </div>
 
-          <div className="mx-auto my-10 hidden max-w-4xl space-y-5 pb-20 font-medium text-black normal-case md:text-xl lg:block lg:text-2xl 2xl:w-1/2">
+          <div className="mx-auto my-10 hidden max-w-8xl space-y-5 pb-20 font-medium text-black normal-case md:text-xl lg:block lg:text-2xl 2xl:w-1/2 4xl:w-full xl:text-[1.5vw]">
             {blog?.description}
           </div>
         </div>

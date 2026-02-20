@@ -21,7 +21,7 @@ export default function Contact() {
         Switch to experts!
       </h1>
 
-      <div className="font-anton sm:text:2xl grid grid-cols-3 text-sm md:text-2xl lg:text-3xl xl:text-4xl">
+      <div className="font-anton sm:text:2xl grid grid-cols-3 text-sm md:text-2xl lg:text-3xl xl:text-[2vw]">
         {data.map((d) => (
           <button
             className="cursor-pointer uppercase"
@@ -34,7 +34,7 @@ export default function Contact() {
 
       <div className="mt-10 grid grid-cols-1 gap-5 rounded-t-3xl bg-white p-5 text-black sm:grid-cols-2 sm:p-8 md:p-10 lg:p-14">
         <div className="font-anton flex h-full flex-col justify-between overflow-hidden">
-          <span>Let's make some noise!</span>
+          <span className="text-[3vw]">Let's make some noise!</span>
           <motion.h4
             className="mt-5 text-[10vw] leading-none sm:text-[8vw]"
             initial={{ y: -10 }}

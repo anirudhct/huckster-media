@@ -24,7 +24,7 @@ const menus = [
     hover: "hover:text-green",
   },
   {
-    name: "For you",
+    name: "For you.",
     href: "/services",
     color: "text-yellow",
     hover: "hover:text-yellow",
@@ -60,7 +60,7 @@ export default function Header() {
               // muted
               // loop
               // playsInline
-              className="h-auto w-28 sm:w-36"
+              className="h-auto w-28 sm:w-36 pt-3 2xl:w-[12vw]"
               src="/logo-unscreen.gif"
             />
           </Link>
@@ -139,7 +139,7 @@ export default function Header() {
                 className="absolute top-0 right-0 cursor-pointer duration-300 hover:rotate-[720deg]"
                 onClick={() => setShow(false)}
               >
-                <Img src="/assets/close.png" className="size-16" />
+                <Img src="/assets/close.png" className="size-12 sm:size-14 2xl:size-[clamp(64px,6vw,120px)]" />
               </motion.button>
             </motion.div>
           </div>

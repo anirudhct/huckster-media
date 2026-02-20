@@ -53,31 +53,52 @@ export default function Services() {
 
   const isSplitTitle = (title: string) => title.length > 22;
 
-  const getTitleFontSize = (title: string) => {
-    const len = title.length;
-    const split = isSplitTitle(title);
+const getTitleFontSize = (title: string) => {
+  const len = title.length;
+  const split = isSplitTitle(title);
 
-    // Logic: [Mobile Size] lg:[Original Desktop Size]
-    
-    // Double-line titles (Split)
-    if (split) {
-      if (len <= 31) return "text-[clamp(4.0rem,19vw,13rem)] lg:text-[clamp(3.3rem,14vw,14rem)]";
-      if (len <= 35) return "text-[clamp(4.2rem,20vw,13rem)] lg:text-[clamp(3.2rem,13vw,13rem)]";
-      if (len <= 37) return "text-[clamp(4.5rem,18vw,13rem)] lg:text-[clamp(3.2rem,13vw,13rem)]";
-      if (len <= 42) return "text-[clamp(3.8rem,16vw,10rem)] lg:text-[clamp(2.9rem,12vw,10rem)]";
-      return "text-[clamp(3rem,12vw,7rem)] lg:text-[clamp(2.3rem,9vw,7rem)]";
-    }
+  // ========================
+  // Double-line titles
+  // ========================
+  if (split) {
+    if (len <= 31)
+      return "text-[clamp(4.0rem,19vw,13rem)] lg:text-[clamp(3.3rem,14vw,14rem)] 2xl:text-[clamp(6vw,18vw,15vw)]";
 
-    // Single-line titles
-    if (len <= 14) return "text-[clamp(6rem,30vw,17rem)] lg:text-[clamp(4.1rem,18vw,15rem)]";
-    if (len <= 16) return "text-[clamp(5.8rem,28vw,15rem)] lg:text-[clamp(4rem,18vw,14rem)]";
-    if (len <= 18) return "text-[clamp(4rem,18vw,8rem)] lg:text-[clamp(3.5rem,16vw,12rem)]";
-    if (len <= 20) return "text-[clamp(4.5rem,20vw,10rem)] lg:text-[clamp(3rem,14vw,10rem)]";
-    if (len <= 21) return "text-[clamp(4rem,18vw,8rem)] lg:text-[clamp(3.2rem,13vw,11rem)]";
-    if (len <= 22) return "text-[clamp(4rem,20vw,10rem)] lg:text-[clamp(3rem,14vw,10rem)]";
+    if (len <= 35)
+      return "text-[clamp(4.2rem,20vw,13rem)] lg:text-[clamp(3.2rem,13vw,13rem)] 2xl:text-[clamp(5vw,15vw,13vw)]";
 
-    return "text-[clamp(4rem,15vw,9rem)] lg:text-[clamp(3rem,10vw,9rem)]";
-  };
+    if (len <= 37)
+      return "text-[clamp(4.5rem,18vw,13rem)] lg:text-[clamp(3.2rem,13vw,13rem)] 2xl:text-[clamp(6vw,15vw,12vw)]";
+
+    if (len <= 42)
+      return "text-[clamp(3.8rem,16vw,10rem)] lg:text-[clamp(2.9rem,12vw,10rem)] 2xl:text-[clamp(4vw,12vw,10vw)]";
+
+    return "text-[clamp(3rem,12vw,7rem)] lg:text-[clamp(2.3rem,9vw,7rem)] 2xl:text-[clamp(5vw,15vw,12vw)]";
+  }
+
+  // ========================
+  // Single-line titles
+  // ========================
+  if (len <= 14)
+    return "text-[clamp(6rem,30vw,17rem)] lg:text-[clamp(4.1rem,18vw,15rem)] 2xl:text-[clamp(6vw,20vw,16vw)]";
+
+  if (len <= 16)
+    return "text-[clamp(5.8rem,28vw,15rem)] lg:text-[clamp(4rem,18vw,14rem)] 2xl:text-[clamp(6vw,19vw,15vw)]";
+
+  if (len <= 18)
+    return "text-[clamp(4rem,18vw,8rem)] lg:text-[clamp(3.5rem,16vw,12rem)] 2xl:text-[clamp(4.5vw,16vw,12.5vw)]";
+
+  if (len <= 20)
+    return "text-[clamp(4.5rem,20vw,10rem)] lg:text-[clamp(3rem,14vw,10rem)] 2xl:text-[clamp(4.5vw,16vw,12.5vw)]";
+
+  if (len <= 21)
+    return "text-[clamp(4rem,18vw,8rem)] lg:text-[clamp(3.2rem,13vw,11rem)] 2xl:text-[clamp(4vw,15vw,11vw)]";
+
+  if (len <= 22)
+    return "text-[clamp(4rem,20vw,10rem)] lg:text-[clamp(3rem,14vw,10rem)] 2xl:text-[clamp(4vw,15vw,11vw)]";
+
+  return "text-[clamp(4rem,15vw,9rem)] lg:text-[clamp(3rem,10vw,9rem)] 2xl:text-[clamp(5vw,18vw,14vw)]";
+};
 
   const titleVariant = {
     hidden: { opacity: 0, y: 100 },
@@ -156,7 +177,7 @@ export default function Services() {
 
             {category.services.map((service, i) => (
               <Parallax key={i} offsetY={-200}>
-                <div className="relative overflow-hidden rounded-t-4xl">
+                <div className="relative overflow-hidden rounded-t-4xl min-h-screen">
                   <Img
                     src={service.image}
                     className="absolute inset-0 -z-10 h-full w-full object-cover"

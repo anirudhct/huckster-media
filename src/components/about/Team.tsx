@@ -63,10 +63,10 @@ export default function Team() {
               <Img src="/assets/team-frame.avif" className="absolute inset-0" />
 
               <div className="font-anton mt-3 flex flex-wrap items-start gap-1">
-                <span className="overflow-hidden text-lg leading-none sm:text-2xl">
+                <span className="overflow-hidden text-lg leading-none sm:text-2xl 2xl:text-[1.5vw]">
                   {d?.name}
                 </span>
-                <span className="text-sm text-[#8D8C84]">{d?.role}</span>
+                <span className="text-sm text-[#8D8C84] 2xl:text-[1vw]">{d?.role}</span>
               </div>
             </motion.div>
           ),

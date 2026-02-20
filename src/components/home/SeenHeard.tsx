@@ -13,7 +13,7 @@ export default function SeenHeard() {
             <span className="overflow-hidden">Heard</span>
             <Img
               src="/assets/seen-heard.jpg"
-              className="relative -mt-10 h-36 w-28 -rotate-6 object-cover sm:-mt-20 sm:h-96 sm:w-[26rem]"
+              className="relative -mt-10 h-36 w-28 -rotate-6 object-cover sm:-mt-20 sm:h-96 sm:w-[26rem] 2xl:w-[38vw] 2xl:h-[38vw]"
             />
           </div>
         </CurvedCard>
