@@ -55,7 +55,7 @@ export default function BottamPoster() {
   useEffect(() => {
     const interval = setInterval(() => {
       setBgIndex((prev) => (prev + 1) % bgClasses.length);
-    }, 2000);
+    }, 1000); // Changed from 2000ms to 1000ms (1 second)
     return () => clearInterval(interval);
   }, []);
 
@@ -121,7 +121,7 @@ function Card({ item }: { item: any }) {
           xmlns="http:www.w3.org/2000/svg"
           version="1.1"
           viewBox="0 0 615.96 221.07"
-          className="absolute bottom-5 mx-auto w-20 cursor-pointer md:block"
+          className="-mt-3 w-20 cursor-pointer md:block"
         >
           <motion.path
             stroke="#efefef"

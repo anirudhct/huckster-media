@@ -60,7 +60,7 @@ export default function Team() {
                 src={d.image}
                 className="p-2 grayscale-100 group-hover:grayscale-0"
               />
-              <Img src="/assets/team-frame.avif" className="absolute inset-0" />
+              {/* <Img src="/assets/team-frame.avif" className="absolute inset-0" /> */}
 
               <div className="font-anton mt-3 flex flex-wrap items-start gap-1">
                 <span className="overflow-hidden text-lg leading-none sm:text-2xl 2xl:text-[1.5vw]">

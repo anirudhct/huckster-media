@@ -45,7 +45,7 @@ export default function ClientMarquee() {
             dynamic
             src={l.image}
             key={i}
-            className="h-40 object-contain sm:h-[10vw]"
+            className="h-48 object-contain sm:h-[12vw]" 
           />
         ))}
       </motion.div>

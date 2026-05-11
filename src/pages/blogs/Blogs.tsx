@@ -56,7 +56,7 @@ export default function Blogs() {
                 </h3>
 
                 <Img
-                  src="/assets/svg/learn-more.png"
+                  src="/assets/svg/learn-more.svg"
                   className="h-auto w-32 2xl:w-[12vw] object-contain"
                 />
               </Link>

@@ -35,13 +35,12 @@ export default function AnimatedBlogCard({
     setIsVisible(v >= 0.35 && v <= 0.7);
   });
 
-  // RESPONSIVE SPACING for 27-inch screens
-  const cardWidthVw = 22; // 22% of screen width
-  const horizontalGapVw = 6; 
+  // Responsive spacing for the staggered blog rail.
+  const cardWidthVw = 22;
+  const horizontalGapVw = 2;
   const marginLeft = `calc(10vw + ${index * (cardWidthVw + horizontalGapVw)}vw)`;
   
-  // Vertical overlap for the "staircase" effect
-  const overlapY = "10vh"; 
+  const overlapY = "4vh"; 
 
   return (
     <div
@@ -89,10 +88,10 @@ export default function AnimatedBlogCard({
                     {data.title}
                   </p>
 
-                  <Img
-                    src="/assets/svg/learn-more.png"
-                    className="h-auto w-[12vw] max-w-[180px] object-contain"
-                  />
+<Img
+  src="/assets/svg/learn-more.svg"  
+  className="h-auto w-[12vw] max-w-[180px] object-contain"
+/>
                 </motion.div>
               )}
             </AnimatePresence>
