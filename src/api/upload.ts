@@ -9,9 +9,10 @@ export const postUpload = async ({
 }) => {
   const formData = new FormData();
   formData.append("file", file);
+  const baseUrl = import.meta.env.VITE_API_BASE_URL.replace(/\/$/, "");
 
   const response = await axios.post(
-    `${import.meta.env.VITE_API_BASE_URL}/upload?folder=${folder}`,
+    `${baseUrl}/upload?folder=${folder}`,
     formData,
     {
       headers: {

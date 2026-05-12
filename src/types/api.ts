@@ -5,6 +5,7 @@ export type TContactForm = {
   companyName?: string;
   role?: string;
   message: string;
+  captchaToken: string;
 };
 
 export type TCareers = {
@@ -44,4 +45,9 @@ export type TWork = {
   order: number;
   featured: boolean;
   publish: boolean;
+};
+
+export type TSiteSettings = {
+  _id?: string;
+  recapVideo: string;
 };

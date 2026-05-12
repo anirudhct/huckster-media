@@ -10,7 +10,7 @@ const data = [
     href: "/about-us",
   },
   {
-    src: "/assets/footer/2.webp",
+    src: "/assets/footer/2.jpeg",
     name: "Think big",
     href: "/work",
   },

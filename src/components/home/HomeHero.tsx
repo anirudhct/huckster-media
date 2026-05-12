@@ -18,7 +18,17 @@ export default function HomeHero() {
   }, []);
 
   return (
-    <div className="flex min-h-[calc(100dvh-3.5rem)] flex-col justify-center gap-5 text-center sm:justify-end">
+    // Zoom-out entrance: starts scaled up (coming from "outside/beyond" the screen)
+    // and animates down to scale(1) — like the whole hero crashes into place
+    <motion.div
+      className="flex min-h-[calc(100dvh-3.5rem)] flex-col justify-center gap-5 text-center sm:justify-end"
+      initial={{ scale: 1.35, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{
+        duration: 1.1,
+        ease: [0.16, 1, 0.3, 1], // expo out — fast deceleration, snappy landing
+      }}
+    >
       {/* marquee container */}
       <motion.div
         ref={heroRef}
@@ -42,10 +52,29 @@ export default function HomeHero() {
         </motion.div>
       </motion.div>
 
-      <ScreenFitText padding>HAPPEN</ScreenFitText>
+      {/* HAPPEN — slower zoom-out, ScreenFitText internal animations disabled
+          so only the motion.div zoom-out plays */}
+      <motion.div
+        initial={{ scale: 1.35, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{
+          duration: 1.8,            // slower than the hero (was 1.1)
+          delay: 0.3,               // slightly more delay (was 0.15)
+          ease: [0.10, 1, 0.25, 1], // more drawn-out deceleration
+        }}
+      >
+        <ScreenFitText padding stagger={false} slam={false}>HAPPEN</ScreenFitText>
+      </motion.div>
 
-      <HeroVideo />
-    </div>
+      {/* Video fades in last */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
+      >
+        <HeroVideo />
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -56,6 +85,7 @@ function HeroText() {
     </h1>
   );
 }
+
 export function TextFlip({ children }: { children: string }) {
   const { ref, inView } = useInView({ threshold: 0.5 });
   const [cycle, setCycle] = useState(0);

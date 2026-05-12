@@ -1,10 +1,19 @@
 import { useState } from "react";
 import Img from "../ui/Image";
+import { useSiteSettings } from "@/hooks/useSiteSettings";
 // import { motion } from "motion/react";
 // import { useInView } from "react-intersection-observer";
 
+const getVideoSrc = (video?: string) => {
+  if (!video) return "";
+  if (video.startsWith("http") || video.startsWith("/")) return video;
+  return `${import.meta.env.VITE_API_BASE_URL.replace(/\/$/, "")}/${video}`;
+};
+
 export default function PlayVideo() {
   const [show, setShow] = useState(false);
+  const { data } = useSiteSettings();
+  const videoSrc = getVideoSrc(data?.data?.recapVideo);
   // const [animationRef, isInView] = useInView({
   //   triggerOnce: false,
   //   threshold: 0.3,
@@ -13,15 +22,17 @@ export default function PlayVideo() {
   return (
     <>
       <div className="relative overflow-hidden rounded-t-4xl">
-        <video
-          loop
-          playsInline
-          muted
-          autoPlay
-          className="absolute -z-10 h-full w-full object-cover"
-        >
-          <source src="/huckster-recap-R4.mp4" />
-        </video>
+        {videoSrc && (
+          <video
+            loop
+            playsInline
+            muted
+            autoPlay
+            className="absolute -z-10 h-full w-full object-cover"
+          >
+            <source src={videoSrc} />
+          </video>
+        )}
         <div className="font-anton ml-[-2.5%] flex h-full min-h-[60vh] flex-col justify-between pt-3 uppercase sm:min-h-[87vh] sm:pt-0 lg:min-h-screen lg:flex-row lg:items-center lg:justify-between">
           {/* <h2
             className="font-font-anton text-white2 lh-08 flex w-full justify-between text-[53vw] uppercase lg:text-[33vw]"
@@ -48,7 +59,8 @@ export default function PlayVideo() {
           </h2> */}
           <div className="flex h-[60vh] w-full items-center justify-center sm:h-[87vh] sm:text-[3vw]">
             <button
-              className="m-auto h-auto w-[4rem] cursor-pointer sm:w-[7.5rem]"
+              className="m-auto h-auto w-[4rem] cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 sm:w-[7.5rem]"
+              disabled={!videoSrc}
               onClick={() => setShow(true)}
             >
               <video preload="metadata" playsInline>
@@ -79,7 +91,7 @@ export default function PlayVideo() {
         </div>
       </div>
 
-      {show && (
+      {show && videoSrc && (
         <div className="fixed top-0 right-0 left-0 z-50 h-screen w-full bg-black">
           <video
             loop
@@ -88,7 +100,7 @@ export default function PlayVideo() {
             controls
             className="absolute -z-10 h-full w-full object-contain"
           >
-            <source src="/huckster-recap-R4.mp4" />
+            <source src={videoSrc} />
           </video>
 
           <button

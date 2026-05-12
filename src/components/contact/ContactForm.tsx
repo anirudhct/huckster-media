@@ -1,13 +1,37 @@
 import FloatingInput from "@/components/ui/FloatingInput";
 import FloatingTextarea from "@/components/ui/FloatingTextarea";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "motion/react";
 import Button from "../ui/Button";
 import { usePostContactForm } from "@/hooks/useContactForm";
 import type { TContactForm } from "@/types/api";
 
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        container: HTMLElement,
+        options: {
+          sitekey: string;
+          callback: (token: string) => void;
+          "expired-callback": () => void;
+          "error-callback": () => void;
+        },
+      ) => string;
+      reset: (widgetId?: string) => void;
+    };
+  }
+}
+
 export default function ContactForm() {
   const { mutate } = usePostContactForm();
+  const captchaRef = useRef<HTMLDivElement | null>(null);
+  const widgetIdRef = useRef<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaError, setCaptchaError] = useState("");
+  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+  const isCaptchaConfigured = Boolean(turnstileSiteKey);
   const {
     register,
     handleSubmit,
@@ -15,12 +39,56 @@ export default function ContactForm() {
     reset,
   } = useForm<TContactForm>();
 
+  useEffect(() => {
+    if (!turnstileSiteKey || !captchaRef.current || widgetIdRef.current) {
+      return;
+    }
+
+    const renderCaptcha = () => {
+      if (!window.turnstile || !captchaRef.current || widgetIdRef.current) {
+        return;
+      }
+
+      widgetIdRef.current = window.turnstile.render(captchaRef.current, {
+        sitekey: turnstileSiteKey,
+        callback: (token) => {
+          setCaptchaToken(token);
+          setCaptchaError("");
+        },
+        "expired-callback": () => setCaptchaToken(""),
+        "error-callback": () => {
+          setCaptchaToken("");
+          setCaptchaError(
+            "Captcha failed to load. Please refresh and try again.",
+          );
+        },
+      });
+    };
+
+    if (window.turnstile) {
+      renderCaptcha();
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+    script.async = true;
+    script.defer = true;
+    script.onload = renderCaptcha;
+    document.head.appendChild(script);
+  }, [turnstileSiteKey]);
+
   const onSubmit = (values: TContactForm) => {
-    mutate(values, {
-      onSuccess: () => {
-        reset();
+    mutate(
+      { ...values, captchaToken },
+      {
+        onSuccess: () => {
+          reset();
+          setCaptchaToken("");
+          window.turnstile?.reset(widgetIdRef.current ?? undefined);
+        },
       },
-    });
+    );
   };
 
   return (
@@ -91,7 +159,24 @@ export default function ContactForm() {
         )}
       </div>
 
-      <Button type="submit" className="col-span-full">
+      <div className="col-span-full">
+        {isCaptchaConfigured ? (
+          <div ref={captchaRef} />
+        ) : (
+          <p className="text-red text-sm">
+            Captcha setup is required before this form can be submitted.
+          </p>
+        )}
+        {captchaError && (
+          <p className="text-red mt-1 text-sm">{captchaError}</p>
+        )}
+      </div>
+
+      <Button
+        type="submit"
+        className="col-span-full"
+        disabled={!isCaptchaConfigured || !captchaToken}
+      >
         Send
       </Button>
     </motion.form>
