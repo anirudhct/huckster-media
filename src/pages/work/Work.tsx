@@ -7,7 +7,6 @@ import type { TWork } from "@/types/api";
 
 export default function Work() {
   const { data } = useWorks();
-  const totalWorks = data?.data?.length || 0;
 
   return (
     <>
@@ -21,7 +20,7 @@ export default function Work() {
       </div>
 
       {data?.data?.map((d: TWork, idx: number) => (
-        <WorkCard work={d} idx={idx} total={totalWorks} key={d._id} />
+        <WorkCard work={d} idx={idx} key={d._id} />
       ))}
 
       <Enquiry />
