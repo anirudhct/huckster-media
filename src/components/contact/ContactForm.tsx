@@ -1,6 +1,6 @@
 import FloatingInput from "@/components/ui/FloatingInput";
 import FloatingTextarea from "@/components/ui/FloatingTextarea";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "motion/react";
 import Button from "../ui/Button";
@@ -9,29 +9,20 @@ import type { TContactForm } from "@/types/api";
 
 declare global {
   interface Window {
-    turnstile?: {
-      render: (
-        container: HTMLElement,
-        options: {
-          sitekey: string;
-          callback: (token: string) => void;
-          "expired-callback": () => void;
-          "error-callback": () => void;
-        },
-      ) => string;
-      reset: (widgetId?: string) => void;
+    grecaptcha?: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
     };
   }
 }
 
 export default function ContactForm() {
-  const { mutate } = usePostContactForm();
-  const captchaRef = useRef<HTMLDivElement | null>(null);
-  const widgetIdRef = useRef<string | null>(null);
-  const [captchaToken, setCaptchaToken] = useState("");
+  const { mutate, isPending } = usePostContactForm();
   const [captchaError, setCaptchaError] = useState("");
-  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
-  const isCaptchaConfigured = Boolean(turnstileSiteKey);
+
+  const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+  const isCaptchaConfigured = Boolean(recaptchaSiteKey);
+
   const {
     register,
     handleSubmit,
@@ -39,56 +30,57 @@ export default function ContactForm() {
     reset,
   } = useForm<TContactForm>();
 
+  // ✅ Load reCAPTCHA v3 script
   useEffect(() => {
-    if (!turnstileSiteKey || !captchaRef.current || widgetIdRef.current) {
-      return;
-    }
-
-    const renderCaptcha = () => {
-      if (!window.turnstile || !captchaRef.current || widgetIdRef.current) {
-        return;
-      }
-
-      widgetIdRef.current = window.turnstile.render(captchaRef.current, {
-        sitekey: turnstileSiteKey,
-        callback: (token) => {
-          setCaptchaToken(token);
-          setCaptchaError("");
-        },
-        "expired-callback": () => setCaptchaToken(""),
-        "error-callback": () => {
-          setCaptchaToken("");
-          setCaptchaError(
-            "Captcha failed to load. Please refresh and try again.",
-          );
-        },
-      });
-    };
-
-    if (window.turnstile) {
-      renderCaptcha();
-      return;
-    }
+    if (!recaptchaSiteKey) return;
 
     const script = document.createElement("script");
-    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+    script.src = `https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`;
     script.async = true;
-    script.defer = true;
-    script.onload = renderCaptcha;
-    document.head.appendChild(script);
-  }, [turnstileSiteKey]);
 
-  const onSubmit = (values: TContactForm) => {
-    mutate(
-      { ...values, captchaToken },
-      {
-        onSuccess: () => {
-          reset();
-          setCaptchaToken("");
-          window.turnstile?.reset(widgetIdRef.current ?? undefined);
-        },
-      },
-    );
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [recaptchaSiteKey]);
+
+  // ✅ Submit handler (v3 flow)
+  const onSubmit = async (values: TContactForm) => {
+    if (!window.grecaptcha) {
+      setCaptchaError("Captcha not loaded. Please refresh.");
+      return;
+    }
+
+    try {
+      const token = await new Promise<string>((resolve) => {
+        window.grecaptcha!.ready(async () => {
+          const t = await window.grecaptcha!.execute(recaptchaSiteKey, {
+            action: "submit",
+          });
+          resolve(t);
+        });
+      });
+
+      mutate(
+        { ...values, captchaToken: token },
+        {
+          onSuccess: () => {
+            reset();
+            setCaptchaError("");
+          },
+          onError: (error: any) => {
+            setCaptchaError(
+              error?.response?.data?.message ||
+                "Captcha verification failed. Try again."
+            );
+          },
+        }
+      );
+    } catch (err) {
+      console.error(err);
+      setCaptchaError("Captcha failed. Please try again.");
+    }
   };
 
   return (
@@ -159,14 +151,19 @@ export default function ContactForm() {
         )}
       </div>
 
+      {/* ✅ v3 notice instead of checkbox */}
       <div className="col-span-full">
         {isCaptchaConfigured ? (
-          <div ref={captchaRef} />
+          <p className="text-xs text-gray-500">
+            This site is protected by reCAPTCHA and the Google Privacy Policy
+            and Terms of Service apply.
+          </p>
         ) : (
           <p className="text-red text-sm">
-            Captcha setup is required before this form can be submitted.
+            Captcha setup is required before submission.
           </p>
         )}
+
         {captchaError && (
           <p className="text-red mt-1 text-sm">{captchaError}</p>
         )}
@@ -175,9 +172,9 @@ export default function ContactForm() {
       <Button
         type="submit"
         className="col-span-full"
-        disabled={!isCaptchaConfigured || !captchaToken}
+        disabled={!isCaptchaConfigured || isPending}
       >
-        Send
+        {isPending ? "Sending..." : "Send"}
       </Button>
     </motion.form>
   );
