@@ -1,3 +1,4 @@
+// ScreenFitText.tsx
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, type ReactNode } from "react";
 
@@ -9,8 +10,7 @@ export default function ScreenFitText({
   stagger = true,
   // animate the whole line as one big "slam up" block (like HEROES)
   slam = false,
-  // new: animate each letter appearing one after another
-  letterStagger = false,
+  glitch = false, // new prop for glitch effect
 }: {
   maximum?: number;
   children: ReactNode;
@@ -18,7 +18,7 @@ export default function ScreenFitText({
   padding?: boolean;
   stagger?: boolean;
   slam?: boolean;
-  letterStagger?: boolean;
+  glitch?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLSpanElement | null>(null);
@@ -48,30 +48,24 @@ export default function ScreenFitText({
     text.style.fontSize = !padding ? max + "px" : max - 10 + "px";
   };
 
-  const renderLetters = (content: string) => {
-    const letters = content.split("");
-    return letters.map((letter, i) => (
-      <span
-        key={i}
-        className="sft-letter-wrapper inline-block"
-        style={{ animationDelay: `${i * 0.18}s` }}
-      >
-        {letter === " " ? "\u00A0" : letter}
-      </span>
-    ));
-  };
-
   const renderWords = (content: ReactNode) => {
     if (typeof content !== "string") return content;
 
-    // letterStagger mode — each letter appears one after another
-    if (letterStagger) {
-      return renderLetters(content);
+    // slam=false and stagger=false — render plain text with no internal animation.
+    if (!slam && !stagger && !glitch) {
+      return content;
     }
 
-    // slam=false and stagger=false — render plain text with no internal animation.
-    if (!slam && !stagger) {
-      return content;
+    // glitch mode — layered chromatic aberration effect
+    if (glitch) {
+      const text = content;
+      return (
+        <span className="sft-glitch-wrapper">
+          <span className="sft-glitch sft-glitch-layer-1">{text}</span>
+          <span className="sft-glitch sft-glitch-layer-2">{text}</span>
+          <span className="sft-glitch sft-glitch-layer-3">{text}</span>
+        </span>
+      );
     }
 
     // slam mode = whole line rises as one unit (like HEROES)

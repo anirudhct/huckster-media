@@ -70,20 +70,207 @@ body {
     transform: translate3d(3px, -3px, 0);
   }
 }
-
-.sft-letter-wrapper {
-  display: inline-block;
-  opacity: 0;
-  animation: letterAppear 0.3s ease forwards;
+/* Add this to your global CSS file (e.g., globals.css) */
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+  10% {
+    transform: skew(-2deg);
+  }
+  20% {
+    transform: skew(2deg);
+  }
+  30% {
+    transform: skew(0deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
 }
 
-@keyframes letterAppear {
+@keyframes glitch-shift-1 {
   0% {
-    opacity: 0;
-    transform: translateY(20px);
+    transform: translate(0px, 0px);
+    clip-path: inset(0% 0% 0% 0%);
+  }
+  5% {
+    transform: translate(-3px, 1px);
+    clip-path: inset(10% 0% 85% 0%);
+  }
+  10% {
+    transform: translate(2px, -1px);
+    clip-path: inset(25% 0% 70% 0%);
+  }
+  15% {
+    transform: translate(-1px, 2px);
+    clip-path: inset(40% 0% 55% 0%);
+  }
+  20% {
+    transform: translate(1px, -1px);
+    clip-path: inset(60% 0% 35% 0%);
+  }
+  25% {
+    transform: translate(-2px, 0px);
+    clip-path: inset(80% 0% 15% 0%);
+  }
+  30% {
+    transform: translate(0px, 0px);
+    clip-path: inset(0% 0% 0% 0%);
+  }
+  100% {
+    transform: translate(0px, 0px);
+    clip-path: inset(0% 0% 0% 0%);
+  }
+}
+
+@keyframes glitch-shift-2 {
+  0% {
+    transform: translate(0px, 0px);
+    clip-path: inset(0% 0% 0% 0%);
+  }
+  5% {
+    transform: translate(3px, -1px);
+    clip-path: inset(80% 0% 10% 0%);
+  }
+  10% {
+    transform: translate(-2px, 1px);
+    clip-path: inset(60% 0% 30% 0%);
+  }
+  15% {
+    transform: translate(1px, -2px);
+    clip-path: inset(30% 0% 60% 0%);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+    clip-path: inset(15% 0% 75% 0%);
+  }
+  25% {
+    transform: translate(2px, 0px);
+    clip-path: inset(5% 0% 90% 0%);
+  }
+  30% {
+    transform: translate(0px, 0px);
+    clip-path: inset(0% 0% 0% 0%);
+  }
+  100% {
+    transform: translate(0px, 0px);
+    clip-path: inset(0% 0% 0% 0%);
+  }
+}
+
+@keyframes glitch-shift-3 {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  10% {
+    transform: translate(0px, 2px);
+  }
+  20% {
+    transform: translate(0px, -1px);
+  }
+  30% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes glitch-opacity {
+  0% {
+    opacity: 1;
+  }
+  5% {
+    opacity: 0.9;
+  }
+  10% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.8;
+  }
+  20% {
+    opacity: 1;
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
+}
+
+@keyframes kinetic-wave {
+  0% {
+    letter-spacing: normal;
+    filter: blur(0px);
+  }
+  20% {
+    letter-spacing: -0.02em;
+    filter: blur(0px);
+  }
+  40% {
+    letter-spacing: 0.05em;
+    filter: blur(0.5px);
+  }
+  60% {
+    letter-spacing: -0.03em;
+    filter: blur(0px);
+  }
+  80% {
+    letter-spacing: 0.03em;
+    filter: blur(0.3px);
+  }
+  100% {
+    letter-spacing: normal;
+    filter: blur(0px);
+  }
+}
+
+.sft-glitch-wrapper {
+  position: relative;
+  display: inline-block;
+  animation: kinetic-wave 3s ease-in-out infinite;
+}
+
+.sft-glitch {
+  position: relative;
+  display: inline-block;
+}
+
+.sft-glitch-layer-1 {
+  color: #ffffff;
+}
+
+.sft-glitch-layer-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ff3366;
+  animation: glitch-shift-1 3s infinite linear;
+  opacity: 0.8;
+}
+
+.sft-glitch-layer-3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #00ffff;
+  animation: glitch-shift-2 3s infinite linear;
+  opacity: 0.8;
+}
+
+/* Optional hover effect for extra kinetic energy */
+.sft-glitch-wrapper:hover {
+  animation: none;
+}
+
+.sft-glitch-wrapper:hover .sft-glitch-layer-1 {
+  animation: glitch-skew 0.5s infinite;
+}
+
+.sft-glitch-wrapper:hover .sft-glitch-layer-2 {
+  animation: glitch-shift-1 0.3s infinite linear;
+}
+
+.sft-glitch-wrapper:hover .sft-glitch-layer-3 {
+  animation: glitch-shift-2 0.3s infinite linear;
 }
