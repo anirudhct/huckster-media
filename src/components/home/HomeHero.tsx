@@ -18,15 +18,13 @@ export default function HomeHero() {
   }, []);
 
   return (
-    // Zoom-out entrance: starts scaled up (coming from "outside/beyond" the screen)
-    // and animates down to scale(1) — like the whole hero crashes into place
     <motion.div
       className="flex min-h-[calc(100dvh-3.5rem)] flex-col justify-center gap-5 text-center sm:justify-end"
       initial={{ scale: 1.35, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{
         duration: 1.1,
-        ease: [0.16, 1, 0.3, 1], // expo out — fast deceleration, snappy landing
+        ease: [0.16, 1, 0.3, 1],
       }}
     >
       {/* marquee container */}
@@ -52,18 +50,24 @@ export default function HomeHero() {
         </motion.div>
       </motion.div>
 
-      {/* HAPPEN — slower zoom-out, ScreenFitText internal animations disabled
-          so only the motion.div zoom-out plays */}
+      {/* HAPPEN — letter by letter fade-up animation */}
       <motion.div
         initial={{ scale: 1.35, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{
-          duration: 1.8,            // slower than the hero (was 1.1)
-          delay: 0.3,               // slightly more delay (was 0.15)
-          ease: [0.10, 1, 0.25, 1], // more drawn-out deceleration
+          duration: 1.8,
+          delay: 0.3,
+          ease: [0.1, 1, 0.25, 1],
         }}
       >
-        <ScreenFitText padding stagger={false} slam={false}>HAPPEN</ScreenFitText>
+        <ScreenFitText
+          padding
+          stagger={false}
+          slam={false}
+          letterStagger={true}
+        >
+          HAPPEN
+        </ScreenFitText>
       </motion.div>
 
       {/* Video fades in last */}
@@ -86,8 +90,33 @@ function HeroText() {
   );
 }
 
+// // New component for letter-by-letter fade-up animation
+// function LetterByLetterText({ text }: { text: string }) {
+//   const letters = text.split("");
+
+//   return (
+//     <span className="inline-flex">
+//       {letters.map((letter, i) => (
+//         <motion.span
+//           key={i}
+//           initial={{ y: 30, opacity: 0 }}
+//           animate={{ y: 0, opacity: 1 }}
+//           transition={{
+//             duration: 0.4,
+//             delay: i * 0.08,
+//             ease: [0.33, 1, 0.68, 1],
+//           }}
+//           style={{ display: "inline-block" }}
+//         >
+//           {letter === " " ? "\u00A0" : letter}
+//         </motion.span>
+//       ))}
+//     </span>
+//   );
+// }
+
 export function TextFlip({ children }: { children: string }) {
-  const { ref, inView } = useInView({ threshold: 0.5 });
+  const { ref, inView } = useInView({ threshold: 0.2 });
   const [cycle, setCycle] = useState(0);
 
   useEffect(() => {
@@ -105,7 +134,7 @@ export function TextFlip({ children }: { children: string }) {
           initial={{ rotateX: 90 }}
           animate={{ rotateX: 0 }}
           transition={{
-            duration: 0.6,
+            duration: 0.4,
             delay: i * 0.06,
             ease: "easeInOut",
           }}

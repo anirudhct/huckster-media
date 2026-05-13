@@ -9,6 +9,8 @@ export default function ScreenFitText({
   stagger = true,
   // animate the whole line as one big "slam up" block (like HEROES)
   slam = false,
+  // new: animate each letter appearing one after another
+  letterStagger = false,
 }: {
   maximum?: number;
   children: ReactNode;
@@ -16,6 +18,7 @@ export default function ScreenFitText({
   padding?: boolean;
   stagger?: boolean;
   slam?: boolean;
+  letterStagger?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const textRef = useRef<HTMLSpanElement | null>(null);
@@ -45,11 +48,28 @@ export default function ScreenFitText({
     text.style.fontSize = !padding ? max + "px" : max - 10 + "px";
   };
 
+  const renderLetters = (content: string) => {
+    const letters = content.split("");
+    return letters.map((letter, i) => (
+      <span
+        key={i}
+        className="sft-letter-wrapper inline-block"
+        style={{ animationDelay: `${i * 0.18}s` }}
+      >
+        {letter === " " ? "\u00A0" : letter}
+      </span>
+    ));
+  };
+
   const renderWords = (content: ReactNode) => {
     if (typeof content !== "string") return content;
 
+    // letterStagger mode — each letter appears one after another
+    if (letterStagger) {
+      return renderLetters(content);
+    }
+
     // slam=false and stagger=false — render plain text with no internal animation.
-    // Used when a parent (e.g. motion.div) is handling the entrance itself.
     if (!slam && !stagger) {
       return content;
     }

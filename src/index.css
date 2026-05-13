@@ -70,19 +70,20 @@ body {
     transform: translate3d(3px, -3px, 0);
   }
 }
-@keyframes fadeUp {
-  from {
+
+.sft-letter-wrapper {
+  display: inline-block;
+  opacity: 0;
+  animation: letterAppear 0.3s ease forwards;
+}
+
+@keyframes letterAppear {
+  0% {
     opacity: 0;
-    transform: translateY(0.3em);
+    transform: translateY(20px);
   }
-  to {
+  100% {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.sft-word {
-  display: inline-block;
-  opacity: 0;
-  animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
