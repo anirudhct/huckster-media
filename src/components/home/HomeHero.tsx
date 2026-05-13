@@ -21,7 +21,7 @@ export default function HomeHero() {
 
   return (
     <motion.div
-      className="flex min-h-[calc(100dvh-3.5rem)] flex-col justify-center gap-5 text-center sm:justify-end"
+      className="flex min-h-screen flex-col justify-center gap-5 text-center sm:justify-end mb-20"
       initial={{ scale: 1.35, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{
@@ -52,11 +52,11 @@ export default function HomeHero() {
         </motion.div>
       </motion.div>
 
-      {/* HAPPEN — Bloom/Morph effect like HEROES from the HTML */}
-      <div className="relative py-8 my-4">
+      {/* HAPPEN — Bloom/Morph effect with increased size (75% instead of 65%) */}
+      <div className="relative py-8 my-4 scale-[0.95] -mt-10">
         <ScreenFitText padding stagger={false} slam={false}>
-          <div className="relative inline-flex items-center justify-center">
-            <span className="font-anton text-center leading-none tracking-tighter inline-flex">
+          <div className="relative inline-flex items-center justify-center ">
+            <span className="font-anton text-center leading-none tracking-tighter inline-flex ">
               {happenText.map((char, index) => (
                 <span
                   key={index}
