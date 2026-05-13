@@ -53,7 +53,7 @@ export default function HomeHero() {
       </motion.div>
 
       {/* HAPPEN — Bloom/Morph effect like HEROES from the HTML */}
-      <div className="relative">
+      <div className="relative py-8 my-4">
         <ScreenFitText padding stagger={false} slam={false}>
           <div className="relative inline-flex items-center justify-center">
             <span className="font-anton text-center leading-none tracking-tighter inline-flex">
