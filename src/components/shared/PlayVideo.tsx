@@ -34,29 +34,6 @@ export default function PlayVideo() {
           </video>
         )}
         <div className="font-anton ml-[-2.5%] flex h-full min-h-[60vh] flex-col justify-between pt-3 uppercase sm:min-h-[87vh] sm:pt-0 lg:min-h-screen lg:flex-row lg:items-center lg:justify-between">
-          {/* <h2
-            className="font-font-anton text-white2 lh-08 flex w-full justify-between text-[53vw] uppercase lg:text-[33vw]"
-            ref={animationRef}
-          >
-            <div>
-              <motion.p
-                initial={{ x: -50 }}
-                animate={isInView ? { x: 0 } : { x: -50 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              >
-                p
-              </motion.p>
-            </div>
-            <div>
-              <motion.p
-                initial={{ x: -50 }}
-                animate={isInView ? { x: 0 } : { x: -50 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              >
-                l
-              </motion.p>
-            </div>
-          </h2> */}
           <div className="flex h-[60vh] w-full items-center justify-center sm:h-[87vh] sm:text-[3vw]">
             <button
               className="m-auto h-auto w-[4rem] cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 sm:w-[7.5rem]"
@@ -68,29 +45,34 @@ export default function PlayVideo() {
               </video>
             </button>
           </div>
-          {/* <h2 className="font-font-anton text-white2 lh-08 flex w-full justify-between text-[53vw] uppercase lg:text-[33vw]">
-            <div>
-              <motion.p
-                initial={{ x: 50 }}
-                animate={isInView ? { x: 0 } : { x: 50 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              >
-                a
-              </motion.p>
-            </div>
-            <div>
-              <motion.p
-                initial={{ x: 50 }}
-                animate={isInView ? { x: 0 } : { x: 50 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              >
-                y
-              </motion.p>
-            </div>
-          </h2> */}
         </div>
       </div>
 
+      {/* TEMPORARY YOUTUBE IFRAME - FULLSCREEN & AUTOPLAY */}
+      {show && (
+        <div className="fixed inset-0 z-50 h-screen w-screen bg-black">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/KsVSO9laB3k?si=ZabX4Wyld5OEvItx&autoplay=1&mute=1&controls=1&modestbranding=1&rel=0"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+            className="h-full w-full"
+          ></iframe>
+
+          <button
+            onClick={() => setShow(false)}
+            className="fixed top-4 right-4 z-50 cursor-pointer duration-300 hover:rotate-[720deg]"
+          >
+            <Img src="/assets/close.png" className="size-20" />
+          </button>
+        </div>
+      )}
+
+      {/* ORIGINAL VIDEO MODAL - COMMENTED OUT FOR NOW
       {show && videoSrc && (
         <div className="fixed top-0 right-0 left-0 z-50 h-screen w-full bg-black">
           <video
@@ -111,6 +93,7 @@ export default function PlayVideo() {
           </button>
         </div>
       )}
+      */}
     </>
   );
 }
