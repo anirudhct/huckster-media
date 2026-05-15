@@ -18,55 +18,55 @@ export default function HomeHero() {
   return (
     // Zoom-out entrance: starts scaled up (coming from "outside/beyond" the screen)
     // and animates down to scale(1) — like the whole hero crashes into place
-    <motion.div
-      className="flex min-h-[calc(100dvh-3.5rem)] flex-col justify-center gap-5 text-center sm:justify-end"
-      initial={{ scale: 1.35, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{
-        duration: 1.1,
-        ease: [0.16, 1, 0.3, 1], // expo out — fast deceleration, snappy landing
-      }}
-    >
-      {/* marquee container */}
-      <motion.div
-        ref={heroRef}
-        className={`w-full overflow-hidden whitespace-nowrap transition-colors duration-500 ${bgClasses[bgIndex]}`}
-      >
-        <span className="sr-only">We're here to make it</span>
+    <div className="relative min-h-[calc(100dvh-3.5rem)] overflow-hidden">
+      {/* Background Video */}
+      <video
+        src="/assets/HAPPEN-TEXT-VIDEO.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      
 
-        <motion.div
-          className="font-anton flex w-max text-[45vw] leading-none text-white sm:text-[48vw]"
-          transition={{
-            duration: 10,
-            ease: "linear",
-            repeat: Infinity,
-          }}
-          animate={{ x: ["0%", "-50%"] }}
-        >
-          <HeroText />
-          <HeroText />
-          <HeroText />
-          <HeroText />
-        </motion.div>
-      </motion.div>
-
-      {/* HAPPEN Video — same zoom-out as the hero, slightly delayed */}
+      {/* Content - minimal padding at the top */}
       <motion.div
+        className="relative z-10 flex min-h-[calc(100dvh-3.5rem)] flex-col justify-start gap-5 text-center pt-2 sm:pt-4"
         initial={{ scale: 1.35, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full px-2"
+        transition={{
+          duration: 1.1,
+          ease: [0.16, 1, 0.3, 1], // expo out — fast deceleration, snappy landing
+        }}
       >
-        <video
-          src="/assets/HAPPEN-TEXT-VIDEO.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-auto"
-        />
+        {/* marquee container - now at the very top */}
+        <motion.div
+          ref={heroRef}
+          className={`w-full overflow-hidden whitespace-nowrap transition-colors duration-500 ${bgClasses[bgIndex]}`}
+        >
+          <span className="sr-only">We're here to make it</span>
+
+          <motion.div
+            className="font-anton flex w-max text-[45vw] leading-none text-white sm:text-[48vw]"
+            transition={{
+              duration: 10,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+            animate={{ x: ["0%", "-50%"] }}
+          >
+            <HeroText />
+            <HeroText />
+            <HeroText />
+            <HeroText />
+          </motion.div>
+        </motion.div>
+
+        {/* Optional spacing or additional content below the marquee */}
+        <div className="flex-1" />
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
 
