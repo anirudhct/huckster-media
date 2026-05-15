@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
-import { useInView } from "react-intersection-observer";
+import ScreenFitText from "../shared/ScreenFitText";
 import HeroVideo from "../shared/HeroVideo";
 
 const bgClasses = ["bg-red", "bg-pink", "bg-yellow", "bg-green", "bg-cyan"];
@@ -16,16 +16,16 @@ export default function HomeHero() {
     return () => clearInterval(interval);
   }, []);
 
+  const happenText = "HAPPEN".split("");
+
   return (
-    // Zoom-out entrance: starts scaled up (coming from "outside/beyond" the screen)
-    // and animates down to scale(1) — like the whole hero crashes into place
     <motion.div
-      className="flex min-h-[calc(100dvh-3.5rem)] flex-col justify-center gap-5 text-center sm:justify-end"
+      className="flex min-h-screen flex-col justify-center gap-5 text-center sm:justify-end mb-20"
       initial={{ scale: 1.35, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{
         duration: 1.1,
-        ease: [0.16, 1, 0.3, 1], // expo out — fast deceleration, snappy landing
+        ease: [0.16, 1, 0.3, 1],
       }}
     >
       {/* marquee container */}
@@ -51,28 +51,76 @@ export default function HomeHero() {
         </motion.div>
       </motion.div>
 
-      {/* HAPPEN SVG — same zoom-out as the hero, slightly delayed */}
-      <motion.div
-        initial={{ scale: 1.35, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full px-3"
-      >
-        <img
-          src="/Huckster_Web_Texts_HAPPEN.svg"
-          alt="HAPPEN"
-          className="w-full h-auto"
-        />
-      </motion.div>
+      {/* HAPPEN — Left to right sequential animation */}
+      <div className="relative py-8 my-4 scale-[0.95] -mt-10">
+        <ScreenFitText padding stagger={false} slam={false}>
+          <div className="relative inline-flex items-center justify-center overflow-visible">
+            <span className="font-anton text-center leading-none inline-flex items-center justify-center" style={{ letterSpacing: '0.15em' }}>
+              {happenText.map((char, index) => {
+                // All letters animate left to right in order
+                return (
+                  <span
+                    key={index}
+                    className="inline-flex items-center justify-center animate-bloom"
+                    style={{ 
+                      // Sequential delay from left to right: H=0s, A=0.12s, P=0.24s, P=0.36s, E=0.48s, N=0.6s
+                      animationDelay: `${index * 0.12}s`,
+                      marginRight: index !== happenText.length - 1 ? '0.1em' : '0',
+                      willChange: 'transform, filter',
+                      backfaceVisibility: 'hidden',
+                      WebkitFontSmoothing: 'antialiased',
+                    }}
+                  >
+                    {char}
+                  </span>
+                );
+              })}
+            </span>
+          </div>
+        </ScreenFitText>
+      </div>
 
       {/* Video fades in last */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
+        transition={{ duration: 0.6, delay: 1.2 }}
       >
         <HeroVideo />
       </motion.div>
+
+      {/* Keyframe animations */}
+      <style>{`
+        .animate-bloom {
+          opacity: 0;
+          animation: bloom 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+          transform-origin: center center;
+        }
+        
+        @keyframes bloom {
+          0% { 
+            transform: scale(1.2); 
+            filter: blur(30px); 
+            opacity: 0; 
+          }
+          30% { 
+            filter: blur(15px);
+          }
+          60% { 
+            opacity: 1;
+            filter: blur(5px);
+          }
+          100% { 
+            transform: scale(1); 
+            filter: blur(0px); 
+            opacity: 1; 
+          }
+        }
+
+        .overflow-visible {
+          overflow: visible !important;
+        }
+      `}</style>
     </motion.div>
   );
 }
@@ -80,46 +128,7 @@ export default function HomeHero() {
 function HeroText() {
   return (
     <h1 className="font-anton flex shrink-0 items-center gap-5 px-5 py-2 text-2xl leading-none sm:px-8 sm:py-3 sm:text-[8vw] md:px-10">
-      <h1>We're here to make it</h1>
+      <span>We're here to make it</span>
     </h1>
-  );
-}
-
-export function TextFlip({ children }: { children: string }) {
-  const { ref, inView } = useInView({ threshold: 0.5 });
-  const [cycle, setCycle] = useState(0);
-
-  useEffect(() => {
-    if (inView) setCycle((c) => c + 1);
-  }, [inView]);
-
-  const letters = children.split("");
-
-  return (
-    <span ref={ref} className="inline-block">
-      {letters.map((letter, i) => (
-        <motion.span
-          key={`${cycle}-${i}`}
-          className="relative inline-block [transform-style:preserve-3d]"
-          initial={{ rotateX: 90 }}
-          animate={{ rotateX: 0 }}
-          transition={{
-            duration: 0.6,
-            delay: i * 0.06,
-            ease: "easeInOut",
-          }}
-        >
-          {/* Front face */}
-          <span className="block [backface-visibility:hidden]">
-            {letter === " " ? "\u00A0" : letter}
-          </span>
-
-          {/* Back face */}
-          <span className="absolute inset-0 block rotate-x-180 [backface-visibility:hidden]">
-            {letter === " " ? "\u00A0" : letter}
-          </span>
-        </motion.span>
-      ))}
-    </span>
   );
 }
