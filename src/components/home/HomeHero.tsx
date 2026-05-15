@@ -56,7 +56,7 @@ export default function HomeHero() {
         initial={{ scale: 1.35, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-        className="w-full px-2"
+        className="w-full px-3"
       >
         <img
           src="/Huckster_Web_Texts_HAPPEN.svg"
