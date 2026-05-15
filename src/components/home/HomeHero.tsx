@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { useInView } from "react-intersection-observer";
-import HeroVideo from "../shared/HeroVideo";
 
 const bgClasses = ["bg-red", "bg-pink", "bg-yellow", "bg-green", "bg-cyan"];
 
@@ -66,15 +65,6 @@ export default function HomeHero() {
           playsInline
           className="w-full h-auto"
         />
-      </motion.div>
-
-      {/* Video fades in last */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-      >
-        <HeroVideo />
       </motion.div>
     </motion.div>
   );
