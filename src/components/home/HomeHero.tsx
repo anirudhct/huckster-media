@@ -17,26 +17,37 @@ export default function HomeHero() {
 
   return (
     <motion.div
-      className="relative w-full overflow-hidden sm-mt-25 mt-10 pb-8 "
+      className="relative w-full overflow-hidden -mt-25 pb-8 sm:pb-0"
       initial={{ scale: 1.35, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* ── HAPPEN video — base layer, full width, never cropped ── */}
+      {/* ── Responsive videos ── */}
+      {/* Mobile video */}
+      <video
+        src="/assets/HAPPEN-TEXT-VIDEOr.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="block w-full h-auto sm:hidden"
+      />
+      
+      {/* Desktop video */}
       <video
         src="/assets/HAPPEN-TEXT-VIDEO.mp4"
         autoPlay
         loop
         muted
         playsInline
-        className="block w-full h-auto"
+        className="hidden sm:block w-full h-auto"
       />
 
       {/* ── Sliding strip — starts below the fixed header ── */}
-      <motion.div
+       <motion.div
         ref={heroRef}
         className={`absolute left-0 w-full overflow-hidden whitespace-nowrap transition-colors duration-500
-          top-[72px] -mt-10 sm:top-[88px] sm:mt-20
+          top-[72px] mt-15 sm:top-[88px] sm:mt-20
           2xl:top-[clamp(72px,8vw,120px)] 2xl:mt-0
           ${bgClasses[bgIndex]}`}
       >
