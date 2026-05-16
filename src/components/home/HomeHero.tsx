@@ -16,64 +16,54 @@ export default function HomeHero() {
   }, []);
 
   return (
-    // Zoom-out entrance: starts scaled up (coming from "outside/beyond" the screen)
-    // and animates down to scale(1) — like the whole hero crashes into place
-    <div className="relative min-h-[calc(100dvh-3.5rem)] overflow-hidden">
-      {/* Background Video */}
+    <motion.div
+      className="relative w-full overflow-hidden pb-8 sm:pb-0"
+      initial={{ scale: 1.35, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+    >
+      {/* ── HAPPEN video — base layer, full width, never cropped ── */}
       <video
         src="/assets/HAPPEN-TEXT-VIDEO.mp4"
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="block w-full h-auto"
       />
-      
 
-      {/* Content - minimal padding at the top */}
+      {/* ── Sliding strip — overlaid at the TOP of the video ──────
+          absolute + top-0 pins it to the very top edge of the video.
+          The coloured strip sits over the empty space above "HAPPEN"
+          so it fills that gap and looks intentional.               */}
       <motion.div
-        className="relative z-10 flex min-h-[calc(100dvh-3.5rem)] flex-col justify-start gap-5 text-center pt-2 sm:pt-4"
-        initial={{ scale: 1.35, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{
-          duration: 1.1,
-          ease: [0.16, 1, 0.3, 1], // expo out — fast deceleration, snappy landing
-        }}
+        ref={heroRef}
+        className={`absolute top-0 left-0 w-full overflow-hidden whitespace-nowrap transition-colors duration-500 ${bgClasses[bgIndex]}`}
       >
-        {/* marquee container - now at the very top */}
+        <span className="sr-only">We're here to make it</span>
+
         <motion.div
-          ref={heroRef}
-          className={`w-full overflow-hidden whitespace-nowrap transition-colors duration-500 ${bgClasses[bgIndex]}`}
+          className="font-anton flex w-max leading-none text-white
+                     text-[8vw]
+                     sm:text-[10vw]
+                     md:text-[9vw]"
+          transition={{ duration: 10, ease: "linear", repeat: Infinity }}
+          animate={{ x: ["0%", "-50%"] }}
         >
-          <span className="sr-only">We're here to make it</span>
-
-          <motion.div
-            className="font-anton flex w-max text-[45vw] leading-none text-white sm:text-[48vw]"
-            transition={{
-              duration: 10,
-              ease: "linear",
-              repeat: Infinity,
-            }}
-            animate={{ x: ["0%", "-50%"] }}
-          >
-            <HeroText />
-            <HeroText />
-            <HeroText />
-            <HeroText />
-          </motion.div>
+          <HeroText />
+          <HeroText />
+          <HeroText />
+          <HeroText />
         </motion.div>
-
-        {/* Optional spacing or additional content below the marquee */}
-        <div className="flex-1" />
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
 function HeroText() {
   return (
-    <h1 className="font-anton flex shrink-0 items-center gap-5 px-5 py-2 text-2xl leading-none sm:px-8 sm:py-3 sm:text-[8vw] md:px-10">
-      <h1>We're here to make it</h1>
+    <h1 className="font-anton flex shrink-0 items-center gap-5 px-5 py-1.5 leading-none sm:px-8 sm:py-2 md:px-10">
+      We're here to make it
     </h1>
   );
 }
@@ -96,18 +86,11 @@ export function TextFlip({ children }: { children: string }) {
           className="relative inline-block [transform-style:preserve-3d]"
           initial={{ rotateX: 90 }}
           animate={{ rotateX: 0 }}
-          transition={{
-            duration: 0.6,
-            delay: i * 0.06,
-            ease: "easeInOut",
-          }}
+          transition={{ duration: 0.6, delay: i * 0.06, ease: "easeInOut" }}
         >
-          {/* Front face */}
           <span className="block [backface-visibility:hidden]">
             {letter === " " ? "\u00A0" : letter}
           </span>
-
-          {/* Back face */}
           <span className="absolute inset-0 block rotate-x-180 [backface-visibility:hidden]">
             {letter === " " ? "\u00A0" : letter}
           </span>
