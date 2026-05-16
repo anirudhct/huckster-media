@@ -17,7 +17,7 @@ export default function HomeHero() {
 
   return (
     <motion.div
-      className="relative w-full overflow-hidden pb-8 sm:pb-0"
+      className="relative w-full overflow-hidden -mt-25 pb-8 sm:pb-0"
       initial={{ scale: 1.35, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
@@ -32,13 +32,10 @@ export default function HomeHero() {
         className="block w-full h-auto"
       />
 
-      {/* ── Sliding strip — overlaid at the TOP of the video ──────
-          absolute + top-0 pins it to the very top edge of the video.
-          The coloured strip sits over the empty space above "HAPPEN"
-          so it fills that gap and looks intentional.               */}
+      {/* ── Sliding strip — starts below the fixed header ── */}
       <motion.div
         ref={heroRef}
-        className={`absolute top-0 left-0 w-full overflow-hidden whitespace-nowrap transition-colors duration-500 ${bgClasses[bgIndex]}`}
+        className={`absolute top-[102px] sm:top-[88px] 2xl:top-[clamp(72px,8vw,120px)] mt-15 left-0 w-full overflow-hidden whitespace-nowrap transition-colors duration-500 ${bgClasses[bgIndex]}`}
       >
         <span className="sr-only">We're here to make it</span>
 

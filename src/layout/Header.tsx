@@ -52,16 +52,13 @@ export default function Header() {
 
   return (
     <>
-      <div className="z-50 px-5 py-2.5">
+      <div className="fixed top-0 z-50 w-full bg-transparent px-5 py-2.5">
         <div className="flex items-center justify-between">
           <Link to={"/"} className="z-50">
             <img
-              // autoPlay
-              // muted
-              // loop
-              // playsInline
               className="h-auto w-28 sm:w-36 pt-3 2xl:w-[12vw]"
               src="/logo-unscreen.gif"
+              alt="Logo"
             />
           </Link>
 
@@ -76,6 +73,9 @@ export default function Header() {
           )}
         </div>
       </div>
+
+      {/* Spacer to prevent content from hiding under fixed header */}
+      <div className="h-[72px] sm:h-[88px] 2xl:h-[clamp(72px,8vw,120px)]" />
 
       <AnimatePresence>
         {show && (
