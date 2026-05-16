@@ -17,7 +17,7 @@ export default function HomeHero() {
 
   return (
     <motion.div
-      className="relative w-full overflow-hidden -mt-25 mb-10 pb-8 sm:pb-0"
+      className="relative w-full overflow-hidden sm-mt-25 mt-10 pb-8 "
       initial={{ scale: 1.35, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
@@ -36,7 +36,7 @@ export default function HomeHero() {
       <motion.div
         ref={heroRef}
         className={`absolute left-0 w-full overflow-hidden whitespace-nowrap transition-colors duration-500
-          top-[72px] mt-0 sm:top-[88px] sm:mt-20
+          top-[72px] -mt-10 sm:top-[88px] sm:mt-20
           2xl:top-[clamp(72px,8vw,120px)] 2xl:mt-0
           ${bgClasses[bgIndex]}`}
       >
