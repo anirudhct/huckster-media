@@ -35,7 +35,10 @@ export default function HomeHero() {
       {/* ── Sliding strip — starts below the fixed header ── */}
       <motion.div
         ref={heroRef}
-        className={`absolute top-[102px] sm:top-[88px] 2xl:top-[clamp(72px,8vw,120px)] mt-25 left-0 w-full overflow-hidden whitespace-nowrap transition-colors duration-500 ${bgClasses[bgIndex]}`}
+        className={`absolute left-0 w-full overflow-hidden whitespace-nowrap transition-colors duration-500
+          top-[72px] mt-25 sm:top-[88px] sm:mt-20
+          2xl:top-[clamp(72px,8vw,120px)] 2xl:mt-0
+          ${bgClasses[bgIndex]}`}
       >
         <span className="sr-only">We're here to make it</span>
 
