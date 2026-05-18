@@ -27,17 +27,17 @@ export default function PlayVideo() {
   return (
     <>
       <div className="relative overflow-hidden rounded-t-4xl">
-        {videoSrc && (
-          <video
-            loop
-            playsInline
-            muted
-            autoPlay
-            className="absolute -z-10 h-full w-full object-cover"
-          >
-            <source src={videoSrc} />
-          </video>
-        )}
+        {/* YouTube video as background */}
+        <iframe
+          className="absolute -z-10 h-full w-full object-cover"
+          src="https://www.youtube.com/embed/KsVSO9laB3k?si=ZabX4Wyld5OEvItx&autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=KsVSO9laB3k"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
+
         <div className="font-anton ml-[-2.5%] flex h-full min-h-[60vh] flex-col justify-between pt-3 uppercase sm:min-h-[87vh] sm:pt-0 lg:min-h-screen lg:flex-row lg:items-center lg:justify-between">
           <div className="flex h-[60vh] w-full items-center justify-center sm:h-[87vh] sm:text-[3vw]">
             <button
