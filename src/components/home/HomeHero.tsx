@@ -47,7 +47,7 @@ export default function HomeHero() {
        <motion.div
         ref={heroRef}
         className={`absolute left-0 w-full overflow-hidden whitespace-nowrap transition-colors duration-500
-          top-[72px] mt-15 sm:top-[88px] sm:mt-20
+          top-[72px] mt-10 sm:top-[88px] sm:mt-15
           2xl:top-[clamp(72px,8vw,120px)] 2xl:mt-0
           ${bgClasses[bgIndex]}`}
       >
