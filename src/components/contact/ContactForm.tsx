@@ -146,9 +146,7 @@ export default function ContactForm() {
           label="Message*"
           {...register("message", { required: "Message is required" })}
         />
-        {errors.message && (
-          <p className="text-red mt-1 text-sm">{errors.message.message}</p>
-        )}
+       
       </div>
 
       {/* ✅ v3 notice instead of checkbox */}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Img from "../ui/Image";
 import { useSiteSettings } from "@/hooks/useSiteSettings";
 // import { motion } from "motion/react";
@@ -18,6 +18,18 @@ export default function PlayVideo() {
   //   triggerOnce: false,
   //   threshold: 0.3,
   // });
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (show) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [show]);
 
   return (
     <>
@@ -48,9 +60,15 @@ export default function PlayVideo() {
         </div>
       </div>
 
-      {/* TEMPORARY YOUTUBE IFRAME - FULLSCREEN & AUTOPLAY */}
+      {/* YOUTUBE IFRAME - FULLSCREEN & AUTOPLAY */}
       {show && (
-        <div className="fixed inset-0 z-50 h-screen w-screen bg-black">
+        <div 
+          className="fixed inset-0 z-[9999] h-screen w-screen bg-black"
+          onClick={(e) => {
+            // Close modal when clicking outside the iframe
+            if (e.target === e.currentTarget) setShow(false);
+          }}
+        >
           <iframe
             width="100%"
             height="100%"
@@ -65,35 +83,17 @@ export default function PlayVideo() {
 
           <button
             onClick={() => setShow(false)}
-            className="fixed top-4 right-4 z-50 cursor-pointer duration-300 hover:rotate-[720deg]"
+            className="fixed top-4 right-4 z-[10000] cursor-pointer duration-300 hover:rotate-[720deg] bg-black/50 rounded-full p-2 sm:top-6 sm:right-6"
+            style={{ 
+              pointerEvents: "auto",
+              position: "fixed",
+              zIndex: 99999
+            }}
           >
-            <Img src="/assets/close.png" className="size-20" />
+            <Img src="/assets/close.png" className="size-10 sm:size-14 2xl:size-20" />
           </button>
         </div>
       )}
-
-      {/* ORIGINAL VIDEO MODAL - COMMENTED OUT FOR NOW
-      {show && videoSrc && (
-        <div className="fixed top-0 right-0 left-0 z-50 h-screen w-full bg-black">
-          <video
-            loop
-            playsInline
-            autoPlay
-            controls
-            className="absolute -z-10 h-full w-full object-contain"
-          >
-            <source src={videoSrc} />
-          </video>
-
-          <button
-            onClick={() => setShow(false)}
-            className="fixed top-0 right-0 cursor-pointer duration-300 hover:rotate-[720deg]"
-          >
-            <Img src="/assets/close.png" className="size-20" />
-          </button>
-        </div>
-      )}
-      */}
     </>
   );
 }
