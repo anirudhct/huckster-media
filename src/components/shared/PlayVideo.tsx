@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import Img from "../ui/Image";
 import { useSiteSettings } from "@/hooks/useSiteSettings";
-// import { motion } from "motion/react";
-// import { useInView } from "react-intersection-observer";
 
 const getVideoSrc = (video?: string) => {
   if (!video) return "";
@@ -14,12 +12,7 @@ export default function PlayVideo() {
   const [show, setShow] = useState(false);
   const { data } = useSiteSettings();
   const videoSrc = getVideoSrc(data?.data?.recapVideo);
-  // const [animationRef, isInView] = useInView({
-  //   triggerOnce: false,
-  //   threshold: 0.3,
-  // });
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
     if (show) {
       document.body.style.overflow = "hidden";
@@ -65,7 +58,6 @@ export default function PlayVideo() {
         <div 
           className="fixed inset-0 z-[9999] h-screen w-screen bg-black"
           onClick={(e) => {
-            // Close modal when clicking outside the iframe
             if (e.target === e.currentTarget) setShow(false);
           }}
         >
@@ -81,9 +73,10 @@ export default function PlayVideo() {
             className="h-full w-full"
           ></iframe>
 
+          {/* Close button - Bottom Right Corner */}
           <button
             onClick={() => setShow(false)}
-            className="fixed top-4 right-4 z-[10000] cursor-pointer duration-300 hover:rotate-[720deg] bg-black/50 rounded-full p-2 sm:top-6 sm:right-6"
+            className="fixed bottom-4 right-4 z-[10000] cursor-pointer duration-300 hover:rotate-[720deg] bg-black/50 hover:bg-black/70 rounded-full p-2 sm:bottom-6 sm:right-6 backdrop-blur-sm"
             style={{ 
               pointerEvents: "auto",
               position: "fixed",
